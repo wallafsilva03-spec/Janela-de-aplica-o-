@@ -23,6 +23,14 @@ CONFIG_DIR = RAIZ / "config"
 DADOS_DIR = RAIZ / "dados"
 DOCS_DIR = RAIZ / "docs"
 
+# Carrega o arquivo .env automaticamente (se existir e se python-dotenv estiver
+# instalado), para não precisar exportar variáveis de ambiente na mão.
+try:
+    from dotenv import load_dotenv
+    load_dotenv(RAIZ / ".env")
+except ModuleNotFoundError:
+    pass
+
 # ---------------------------------------------------------------------------
 # Credenciais e endpoints da ClimAPI (Embrapa AgroAPI)
 # ---------------------------------------------------------------------------

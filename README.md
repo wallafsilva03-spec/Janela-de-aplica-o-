@@ -40,8 +40,7 @@ As chaves **não** ficam no código. Assine a ClimAPI na
 
 ```bash
 pip install -r requirements.txt
-set -a && source .env && set +a
-python -m src.coleta --apenas-padrao
+python -m src.coleta --apenas-padrao   # o .env é carregado automaticamente
 ```
 
 **GitHub Actions (recomendado):** em *Settings → Secrets and variables → Actions*,
@@ -69,8 +68,7 @@ navegador):
 
 ```bash
 pip install -r requirements.txt
-set -a && source .env && set +a      # carrega as chaves
-python -m src.servidor               # sobe em http://127.0.0.1:8000
+python -m src.servidor               # sobe em http://127.0.0.1:8000 (lê o .env sozinho)
 ```
 
 Abra <http://127.0.0.1:8000> e clique no botão — a página consulta a ClimAPI,
