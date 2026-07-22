@@ -59,7 +59,7 @@ BASE_URL = os.getenv("EMBRAPA_BASE_URL", "https://api.cnptia.embrapa.br/climapi/
 # Embrapa altere algum identificador, rode `python -m src.coleta --listar-variaveis`
 # para ver a lista exata que a sua conta retorna e ajuste aqui.
 VARIAVEIS = {
-    "temperatura": os.getenv("VAR_TEMPERATURA", "tmp2m"),      # temperatura a 2 m (K)
+    "temperatura": os.getenv("VAR_TEMPERATURA", "tmpsfc"),     # temperatura da superfície (°C)
     "umidade": os.getenv("VAR_UMIDADE", "rh2m"),               # umidade relativa a 2 m (%)
     "precipitacao": os.getenv("VAR_PRECIPITACAO", "apcpsfc"),  # precipitação acumulada (mm)
     "vento_u": os.getenv("VAR_VENTO_U", "ugrd10m"),            # vento componente U a 10 m (m/s)

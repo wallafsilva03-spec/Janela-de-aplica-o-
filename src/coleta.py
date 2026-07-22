@@ -36,9 +36,17 @@ def coletar(apenas_padrao: bool = False) -> dict:
 
     for cid in cidades:
         try:
+            # Descobre a rodada (data) mais recente uma vez por cidade e reusa
+            # para todas as variáveis, garantindo instantes alinhados.
+            itens = list(config.VARIAVEIS.items())
+            datas = cliente.datas(itens[0][1])
+            if not datas:
+                print(f"[aviso] Sem datas disponíveis para {cid['nome']}; pulando.")
+                continue
+            data = datas[0]
             series_brutas = {
-                nome: cliente.serie(codigo, cid["lon"], cid["lat"])
-                for nome, codigo in config.VARIAVEIS.items()
+                nome: cliente.serie(codigo, cid["lon"], cid["lat"], data)
+                for nome, codigo in itens
             }
         except LimiteRequisicoesError as e:
             print(f"[aviso] {e} Parando em {cid['nome']}.")

@@ -13,6 +13,7 @@ o instante e o valor de formas diferentes. Tratamos os casos comuns.
 from __future__ import annotations
 
 import base64
+from datetime import datetime, timedelta, timezone
 from typing import Any
 
 import requests
@@ -89,59 +90,52 @@ class EmbrapaClimAPI:
         """GET /ncep-gfs — lista as variáveis disponíveis na sua conta."""
         return self._get("/ncep-gfs")
 
-    def serie(self, variavel: str, lon: float, lat: float) -> list[dict]:
-        """Série de previsão de uma variável para o ponto (lon, lat).
+    def datas(self, variavel: str) -> list[str]:
+        """GET /ncep-gfs/{variavel} — datas das rodadas disponíveis (mais recente primeiro)."""
+        bruto = self._get(f"/ncep-gfs/{variavel}")
+        return [str(d) for d in bruto] if isinstance(bruto, list) else []
 
-        GET /ncep-gfs/{variavel}/{longitude}/{latitude}
-        Devolve uma lista de {"data": ISO8601, "valor": float}.
+    def serie(self, variavel: str, lon: float, lat: float, data: str) -> list[dict]:
+        """Série de previsão de uma variável para o ponto (lon, lat) numa rodada.
+
+        GET /ncep-gfs/{variavel}/{data}/{longitude}/{latitude}
+        A resposta é uma lista de {"horas": N, "valor": X}, onde N é o número de
+        horas após 00:00 UTC da data base. Convertemos para instantes no fuso de
+        Brasília e devolvemos {"data": ISO8601, "valor": float}.
+        Em caso de 404 (variável sem essa data), devolve lista vazia.
         """
-        bruto = self._get(f"/ncep-gfs/{variavel}/{lon}/{lat}")
-        return _normalizar_serie(bruto)
+        try:
+            bruto = self._get(f"/ncep-gfs/{variavel}/{data}/{lon}/{lat}")
+        except requests.HTTPError as e:
+            if e.response is not None and e.response.status_code == 404:
+                return []
+            raise
+        return _serie_horas(bruto, data)
 
 
 # --------------------------------------------------------------------------
-# Parsing tolerante das respostas
+# Parsing da resposta (registros {"horas": N, "valor": X})
 # --------------------------------------------------------------------------
-_CHAVES_LISTA = ("response", "data", "result", "results", "features", "series", "valores")
-_CHAVES_TEMPO = ("data", "date", "datetime", "horario", "timestamp", "instante", "dt")
-_CHAVES_VALOR = ("valor", "value", "val", "measure", "medida")
+_FUSO_BR = timezone(timedelta(hours=-3))  # America/Sao_Paulo
 
 
-def _extrair_lista(bruto: Any) -> list[dict]:
-    if isinstance(bruto, list):
-        return bruto
-    if isinstance(bruto, dict):
-        for chave in _CHAVES_LISTA:
-            valor = bruto.get(chave)
-            if isinstance(valor, list):
-                return valor
-        # Último recurso: primeira lista de dicionários encontrada.
-        for valor in bruto.values():
-            if isinstance(valor, list) and valor and isinstance(valor[0], dict):
-                return valor
-    raise ValueError(f"Formato de resposta inesperado da ClimAPI: {type(bruto)!r}")
-
-
-def _primeira_chave(registro: dict, candidatas: tuple[str, ...]) -> str | None:
-    for chave in candidatas:
-        if chave in registro:
-            return chave
-    return None
-
-
-def _normalizar_serie(bruto: Any) -> list[dict]:
-    registros = _extrair_lista(bruto)
+def _serie_horas(bruto: Any, data: str) -> list[dict]:
+    if not isinstance(bruto, list):
+        return []
+    try:
+        base = datetime.strptime(data, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    except ValueError:
+        return []
     saida: list[dict] = []
-    for reg in registros:
+    for reg in bruto:
         if not isinstance(reg, dict):
             continue
-        ktempo = _primeira_chave(reg, _CHAVES_TEMPO)
-        kvalor = _primeira_chave(reg, _CHAVES_VALOR)
-        if ktempo is None or kvalor is None:
+        horas, valor = reg.get("horas"), reg.get("valor")
+        if horas is None or valor is None:
             continue
         try:
-            valor = float(reg[kvalor])
+            instante = (base + timedelta(hours=int(horas))).astimezone(_FUSO_BR)
+            saida.append({"data": instante.isoformat(timespec="minutes"), "valor": float(valor)})
         except (TypeError, ValueError):
             continue
-        saida.append({"data": str(reg[ktempo]), "valor": valor})
     return saida
