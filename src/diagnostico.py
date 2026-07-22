@@ -1,22 +1,16 @@
-"""Diagnóstico da ClimAPI: descobre os códigos de variável e o formato do endpoint.
+"""Diagnóstico da ClimAPI: descobre variáveis e o formato do endpoint de dados.
 
-Roda no GitHub Actions (onde a API é acessível) e imprime:
-  - status e corpo do GET /ncep-gfs (lista de variáveis disponíveis);
-  - testes de algumas estruturas de URL candidatas para uma variável.
-
-Não imprime o token nem as chaves. Uso temporário para acertar a config.
+Roda no GitHub Actions (onde a API é acessível). Não imprime token/chaves.
 """
 from __future__ import annotations
 
 import json
 
-import requests
-
 from . import config
 from .embrapa_client import EmbrapaClimAPI
 
 
-def _tenta(cliente: EmbrapaClimAPI, caminho: str) -> None:
+def _get(cliente: EmbrapaClimAPI, caminho: str, limite: int = 700) -> None:
     url = f"{config.BASE_URL}{caminho}"
     try:
         r = cliente._sessao.get(
@@ -24,7 +18,7 @@ def _tenta(cliente: EmbrapaClimAPI, caminho: str) -> None:
             headers={"Authorization": f"Bearer {cliente.autenticar()}"},
             timeout=60,
         )
-        corpo = r.text[:600].replace("\n", " ")
+        corpo = r.text[:limite].replace("\n", " ")
         print(f"[{r.status_code}] GET {caminho}\n        -> {corpo}\n")
     except Exception as e:  # noqa: BLE001
         print(f"[ERRO] GET {caminho} -> {type(e).__name__}: {e}\n")
@@ -32,32 +26,33 @@ def _tenta(cliente: EmbrapaClimAPI, caminho: str) -> None:
 
 def main() -> None:
     cliente = EmbrapaClimAPI()
-    print("=== Autenticando ===")
+    cliente.autenticar()
+    print("=== Lista completa de variáveis (GET /ncep-gfs) ===")
     try:
-        cliente.autenticar()
-        print("Token obtido com sucesso.\n")
+        bruto = cliente.listar_variaveis()
+        nomes = [v.get("nome") for v in bruto] if isinstance(bruto, list) else bruto
+        print("VARIÁVEIS:", json.dumps(nomes, ensure_ascii=False))
     except Exception as e:  # noqa: BLE001
-        print(f"Falha na autenticação: {type(e).__name__}: {e}")
-        return
+        print("Falha ao listar:", e)
+    print()
 
-    print("=== Lista de recursos/variáveis (GET /ncep-gfs) ===")
-    _tenta(cliente, "/ncep-gfs")
-
-    # Ponto de Ribeirão Preto para os testes.
     lon, lat = -47.8103, -21.1775
+    var = "apcpsfc"  # variável confirmada na lista
 
-    print("=== Testando estruturas de URL candidatas ===")
-    # Descobrimos os códigos de variável a partir da resposta de /ncep-gfs;
-    # por ora testamos alguns candidatos comuns e as duas ordens de coordenada.
-    candidatos_var = ["tmp2m", "tmax", "tmin", "tmed", "temperatura", "temp",
-                       "t2m", "tmpsfc", "ur", "umidade"]
-    for var in candidatos_var:
-        _tenta(cliente, f"/ncep-gfs/{var}/{lon}/{lat}")   # var / lon / lat
-    # ordem alternativa lat/lon com a primeira candidata
-    _tenta(cliente, f"/ncep-gfs/tmp2m/{lat}/{lon}")
-    # sufixo de recurso alternativo
-    _tenta(cliente, "/ncep-gfs/variaveis")
-    _tenta(cliente, "/ncep-gfs/variables")
+    print("=== Descobrindo o formato do endpoint de dados ===")
+    # 2 segmentos: o backend deve dizer quais parâmetros faltam
+    _get(cliente, f"/ncep-gfs/{var}")
+    # query params (várias convenções de nome)
+    _get(cliente, f"/ncep-gfs/{var}?longitude={lon}&latitude={lat}")
+    _get(cliente, f"/ncep-gfs/{var}?lon={lon}&lat={lat}")
+    _get(cliente, f"/ncep-gfs/{var}?long={lon}&lat={lat}")
+    # coordenadas juntas em um segmento
+    _get(cliente, f"/ncep-gfs/{var}/{lon},{lat}")
+    _get(cliente, f"/ncep-gfs/{var}/{lat},{lon}")
+    # coordenada única por vez
+    _get(cliente, f"/ncep-gfs/{var}/{lon}")
+    # recurso plural
+    _get(cliente, f"/ncep-gfs/previsao/{var}?longitude={lon}&latitude={lat}")
 
 
 if __name__ == "__main__":
