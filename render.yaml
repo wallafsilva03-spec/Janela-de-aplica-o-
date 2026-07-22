@@ -1,0 +1,27 @@
+# Blueprint do Render — https://render.com
+# Deploy do painel + backend do botão "Atualizar agora".
+#
+# Como usar:
+#   1. Faça push deste repositório para o GitHub (já feito).
+#   2. No Render: New + -> Blueprint -> conecte este repositório.
+#   3. O Render lê este arquivo e cria o serviço web.
+#   4. Em Environment, cole as duas chaves (elas NÃO ficam no código):
+#         EMBRAPA_CONSUMER_KEY
+#         EMBRAPA_CONSUMER_SECRET
+#   5. Deploy. Abra a URL gerada e clique em "Atualizar agora".
+services:
+  - type: web
+    name: janela-aplicacao-herbicida
+    runtime: python
+    plan: free
+    branch: claude/embrapa-herbicide-opportunities-fe1wrw
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn src.servidor:app --workers 2 --bind 0.0.0.0:$PORT --timeout 120
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.6"
+      # Defina os valores no painel do Render (sync:false = não vêm do repositório).
+      - key: EMBRAPA_CONSUMER_KEY
+        sync: false
+      - key: EMBRAPA_CONSUMER_SECRET
+        sync: false

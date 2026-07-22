@@ -79,9 +79,26 @@ recalcula os indicadores e atualiza os gráficos ao vivo. Cada clique consome
 
 Se você abrir apenas o `docs/index.html` (ou o GitHub Pages, que é estático), o
 botão avisa que precisa do servidor — o Pages continua mostrando a última coleta
-diária. Para o botão funcionar **online**, hospede `src/servidor.py` em um serviço
-que aceite Python (Render, Railway, Fly.io, uma VM etc.) com as duas variáveis de
-ambiente `EMBRAPA_CONSUMER_KEY` e `EMBRAPA_CONSUMER_SECRET` configuradas.
+diária. Para o botão funcionar **online**, hospede o backend (veja abaixo).
+
+### Deploy no Render (botão online)
+
+O repositório já traz [`render.yaml`](render.yaml) e [`Procfile`](Procfile) prontos.
+
+1. Faça push do repositório para o GitHub.
+2. No [Render](https://render.com): **New + → Blueprint** e conecte este repositório.
+   O Render lê o `render.yaml` e cria o serviço web (gunicorn).
+3. Em **Environment**, cole as duas chaves (elas **não** ficam no código):
+   - `EMBRAPA_CONSUMER_KEY`
+   - `EMBRAPA_CONSUMER_SECRET`
+4. Clique em **Deploy**. Abra a URL gerada e use o botão **Atualizar agora**.
+
+Outras plataformas (Railway, Fly.io, uma VM) funcionam do mesmo jeito: comando de
+start `gunicorn src.servidor:app --bind 0.0.0.0:$PORT` e as duas variáveis de ambiente.
+
+> No plano grátis do Render o serviço "dorme" após um tempo ocioso; a primeira
+> visita depois disso leva alguns segundos para acordar. Isso não afeta a coleta
+> diária das 7h, que roda pelo GitHub Actions.
 
 > **Segurança:** as chaves nunca vão para o HTML nem para o repositório (o `.env`
 > está no `.gitignore`). Como as chaves que você enviou passaram pelo chat,
