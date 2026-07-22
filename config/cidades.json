@@ -1,0 +1,33 @@
+{
+  "regiao": "Sudeste",
+  "descricao": "Cidades monitoradas para janela de aplicação de herbicida. Coordenadas em graus decimais (WGS84). A ClimAPI/GFS tem resolução de ~25 km, então pequenas variações de coordenada não mudam o resultado.",
+  "cidades": [
+    {
+      "id": "ribeirao-preto",
+      "nome": "Ribeirão Preto",
+      "uf": "SP",
+      "regiao": "Sudeste",
+      "lat": -21.1775,
+      "lon": -47.8103,
+      "padrao": true
+    },
+    {
+      "id": "sao-carlos",
+      "nome": "São Carlos",
+      "uf": "SP",
+      "regiao": "Sudeste",
+      "lat": -22.0175,
+      "lon": -47.8908,
+      "padrao": true
+    },
+    {
+      "id": "luis-antonio",
+      "nome": "Luís Antônio",
+      "uf": "SP",
+      "regiao": "Sudeste",
+      "lat": -21.5525,
+      "lon": -47.7686,
+      "padrao": true
+    }
+  ]
+}

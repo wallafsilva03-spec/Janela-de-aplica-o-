@@ -1,0 +1,48 @@
+name: Coleta diária ClimAPI
+
+# Roda uma vez por dia às 07:00 no horário de Brasília (10:00 UTC).
+# Também pode ser disparado manualmente na aba Actions.
+on:
+  schedule:
+    - cron: "0 10 * * *"   # 10:00 UTC == 07:00 America/Sao_Paulo
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: coleta-diaria
+  cancel-in-progress: false
+
+jobs:
+  coletar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Coletar previsão e gerar painel
+        env:
+          EMBRAPA_CONSUMER_KEY: ${{ secrets.EMBRAPA_CONSUMER_KEY }}
+          EMBRAPA_CONSUMER_SECRET: ${{ secrets.EMBRAPA_CONSUMER_SECRET }}
+        run: python -m src.coleta --apenas-padrao
+
+      - name: Commitar resultado
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f dados/latest.json docs/index.html
+          if git diff --staged --quiet; then
+            echo "Sem mudanças para commitar."
+          else
+            git commit -m "chore: coleta diária da janela de aplicação ($(date -u +%Y-%m-%d))"
+            git push
+          fi
