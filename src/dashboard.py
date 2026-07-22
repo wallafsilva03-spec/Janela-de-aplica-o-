@@ -66,6 +66,11 @@ _HTML = r"""<!doctype html>
   .chip input { display: none; }
   .chip .dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
   .chip[aria-pressed="false"] { opacity: .42; }
+  .reso { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+  .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
+  .seg button { border: 0; background: var(--surface); color: var(--ink2); cursor: pointer;
+    font-size: 13px; padding: 6px 14px; }
+  .seg button.on { background: var(--c1); color: #fff; font-weight: 600; }
   /* legenda */
   .leg { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--ink2); }
   .leg span { display: inline-flex; align-items: center; gap: 7px; }
@@ -119,6 +124,13 @@ _HTML = r"""<!doctype html>
   <div class="card">
     <h2>Cidades <span class="sub">— clique para mostrar/ocultar</span></h2>
     <div class="cidades" id="cidades"></div>
+    <div class="reso">
+      <span class="sub">Ver por:</span>
+      <div class="seg" id="reso">
+        <button data-v="hora" class="on">Hora</button>
+        <button data-v="nativa">Passo da previsão</button>
+      </div>
+    </div>
   </div>
 
   <div class="card">
@@ -205,6 +217,15 @@ DADOS.cidades.forEach((c, i) => {
   elCid.appendChild(b);
 });
 
+// ---- seletor de resolução ----
+document.querySelectorAll('#reso button').forEach(b => {
+  b.onclick = () => {
+    porHora = b.dataset.v === 'hora';
+    document.querySelectorAll('#reso button').forEach(x => x.classList.toggle('on', x === b));
+    render();
+  };
+});
+
 // ---- utilidades ----
 const fmtHora = s => { const d = new Date(s);
   return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'}) + ' ' +
@@ -213,17 +234,65 @@ const idxCor = c => DADOS.cidades.findIndex(x => x.id === c.id);
 
 function ativasLista() { return DADOS.cidades.filter(c => ativas.has(c.id)); }
 
+// ---- resolução (por hora x passo nativo da previsão) ----
+let porHora = true;
+
+function classificarJS(temp, umid, vento, precip, dt) {
+  const L = DADOS.limiares;
+  if (precip > L.precip_mm_max) return 'desfavoravel';
+  if (vento < L.vento_kmh.aceitavel[0] || vento > L.vento_kmh.aceitavel[1]) return 'desfavoravel';
+  if (temp > L.temp_c.aceitavel_max) return 'desfavoravel';
+  if (umid < L.umidade.aceitavel_min) return 'desfavoravel';
+  if (dt < L.delta_t.aceitavel[0] || dt > L.delta_t.aceitavel[1]) return 'desfavoravel';
+  if (vento >= L.vento_kmh.ideal[0] && vento <= L.vento_kmh.ideal[1] &&
+      temp <= L.temp_c.ideal_max && umid >= L.umidade.ideal_min &&
+      dt >= L.delta_t.ideal[0] && dt <= L.delta_t.ideal[1]) return 'favoravel';
+  return 'atencao';
+}
+
+function interporHoraria(serie) {
+  if (serie.length < 2) return serie;
+  const t = serie.map(p => new Date(p.data).getTime());
+  const out = []; let j = 0;
+  for (let ms = t[0]; ms <= t[t.length - 1]; ms += 3600000) {
+    while (j < serie.length - 2 && t[j + 1] <= ms) j++;
+    const a = serie[j], b = serie[j + 1];
+    const f = t[j + 1] > t[j] ? (ms - t[j]) / (t[j + 1] - t[j]) : 0;
+    const L = (k) => a[k] + (b[k] - a[k]) * f;
+    const temp = +L('temp_c').toFixed(1), umid = Math.round(L('umidade'));
+    const vento = +L('vento_kmh').toFixed(1), precip = +L('precip_mm').toFixed(2);
+    const dt = +L('delta_t').toFixed(2);
+    out.push({ data: new Date(ms).toISOString(), temp_c: temp, umidade: umid,
+      vento_kmh: vento, precip_mm: precip, delta_t: dt,
+      classe: classificarJS(temp, umid, vento, precip, dt) });
+  }
+  return out;
+}
+
+function serieCidade(c) {
+  if (!porHora) return c.serie;
+  if (!c._hora) c._hora = interporHoraria(c.serie);
+  return c._hora;
+}
+
+function resumirSerie(serie) {
+  const fav = serie.filter(p => p.classe === 'favoravel');
+  return { horas_favoraveis: fav.length, total_instantes: serie.length,
+    proxima_janela: fav.length ? fav[0].data : null };
+}
+
 // ---- KPIs ----
 function renderKpis() {
   const el = document.getElementById('kpis'); el.innerHTML = '';
+  const unidade = porHora ? 'horas favoráveis' : 'instantes favoráveis';
   ativasLista().forEach(c => {
-    const r = c.resumo;
+    const r = resumirSerie(serieCidade(c));
     const prox = r.proxima_janela ? fmtHora(r.proxima_janela) : '—';
     const d = document.createElement('div'); d.className = 'kpi';
     d.innerHTML =
       '<div class="city"><span class="dot" style="background:'+CORES[idxCor(c)]+'"></span>'+c.nome+'</div>'+
       '<div class="n">'+r.horas_favoraveis+'</div>'+
-      '<div class="l">instantes favoráveis (de '+r.total_instantes+')</div>'+
+      '<div class="l">'+unidade+' (de '+r.total_instantes+')</div>'+
       '<div class="l" style="margin-top:8px">Próxima janela: <b>'+prox+'</b></div>';
     el.appendChild(d);
   });
@@ -233,7 +302,7 @@ function renderKpis() {
 function renderTimelines() {
   const host = document.getElementById('timelines'); host.innerHTML = '';
   ativasLista().forEach(c => {
-    const serie = c.serie; const n = serie.length;
+    const serie = serieCidade(c); const n = serie.length;
     const W = 1000, H = 34, pl = 4, pr = 4, top = 0, hb = 24;
     const iw = (W - pl - pr) / Math.max(1, n);
     let rects = '', ticks = '';
@@ -299,11 +368,13 @@ function renderCharts() {
 function chartSVG(m, cidades) {
   const W = 500, H = 260, pl = 40, pr = 12, pt = 12, pb = 26;
   const iw = W - pl - pr, ih = H - pt - pb;
-  // eixo de tempo pela primeira cidade ativa (todas compartilham a grade GFS)
-  const ref = cidades[0] ? cidades[0].serie : (DADOS.cidades[0].serie);
+  // série de cada cidade conforme a resolução escolhida
+  const sc = cidades.map(c => serieCidade(c));
+  // eixo de tempo pela primeira cidade ativa (todas compartilham a mesma grade)
+  const ref = sc[0] || serieCidade(DADOS.cidades[0]);
   const n = ref.length;
   let vals = [];
-  cidades.forEach(c => c.serie.forEach(p => vals.push(p[m.key])));
+  sc.forEach(serie => serie.forEach(p => vals.push(p[m.key])));
   if (m.band.min != null) vals.push(m.band.min);
   if (m.band.max != null) vals.push(m.band.max);
   let ymin = Math.min(...vals), ymax = Math.max(...vals);
@@ -335,10 +406,10 @@ function chartSVG(m, cidades) {
       ultimo=d.toDateString();
     }});
   // linhas por cidade
-  cidades.forEach(c => {
+  cidades.forEach((c, ci) => {
     const cor = CORES[idxCor(c)];
     let d = '';
-    c.serie.forEach((p,i) => { d += (i?'L':'M') + X(i).toFixed(1) + ' ' + Y(p[m.key]).toFixed(1) + ' '; });
+    sc[ci].forEach((p,i) => { d += (i?'L':'M') + X(i).toFixed(1) + ' ' + Y(p[m.key]).toFixed(1) + ' '; });
     s += '<path d="'+d+'" fill="none" stroke="'+cor+'" stroke-width="2" stroke-linejoin="round"/>';
   });
   // camada de hover
@@ -356,7 +427,7 @@ function chartSVG(m, cidades) {
     let i = Math.round((sx - pl)/iw*(n-1)); i = Math.max(0, Math.min(n-1, i));
     cx.setAttribute('x1', X(i)); cx.setAttribute('x2', X(i)); cx.setAttribute('opacity','1');
     let html = '<b>'+fmtHora(ref[i].data)+'</b>';
-    cidades.forEach(c => { const p = c.serie[i]; if (!p) return;
+    cidades.forEach((c, ci) => { const p = sc[ci][i]; if (!p) return;
       html += '<div class="r"><span class="dot" style="background:'+CORES[idxCor(c)]+'"></span>'+
               c.nome+': <b style="color:var(--ink)">'+p[m.key].toFixed(m.dec)+' '+m.unidade+'</b></div>'; });
     showTip(e, html);
