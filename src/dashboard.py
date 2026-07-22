@@ -93,13 +93,22 @@ _HTML = r"""<!doctype html>
   .tip .r { display: flex; align-items: center; gap: 6px; color: var(--ink2); }
   .tip .r .dot { width: 9px; height: 9px; border-radius: 50%; }
   .foot { color: var(--muted); font-size: 12px; margin-top: 24px; }
-  .toggle { float: right; font-size: 12px; color: var(--ink2); cursor: pointer;
-    border: 1px solid var(--border); border-radius: 999px; padding: 5px 12px; background: var(--surface); }
+  .topbar { float: right; display: flex; gap: 8px; align-items: center; }
+  .toggle, .btn { font-size: 12px; color: var(--ink2); cursor: pointer;
+    border: 1px solid var(--border); border-radius: 999px; padding: 6px 12px; background: var(--surface); }
+  .btn { color: #fff; background: var(--c1); border-color: transparent; font-weight: 600; }
+  .btn:disabled { opacity: .55; cursor: progress; }
+  #status { display: block; clear: both; text-align: right; font-size: 12px; color: var(--ink2); min-height: 18px; padding-top: 6px; }
+  #status.err { color: var(--crit); }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <button class="toggle" id="tema">☀︎ / ☾</button>
+  <div class="topbar">
+    <button class="btn" id="atualizar">⟳ Atualizar agora</button>
+    <button class="toggle" id="tema">☀︎ / ☾</button>
+  </div>
+  <span id="status"></span>
   <header>
     <h1>Janela de aplicação de herbicida — Sudeste</h1>
     <p id="meta"></p>
@@ -138,7 +147,7 @@ _HTML = r"""<!doctype html>
 
 <script id="dados" type="application/json">__DADOS__</script>
 <script>
-const DADOS = JSON.parse(document.getElementById('dados').textContent);
+let DADOS = JSON.parse(document.getElementById('dados').textContent);
 const CORES = ['var(--c1)','var(--c2)','var(--c3)','#eda100','#e87ba4'];
 const STATUS = {favoravel:'var(--good)', atencao:'var(--warn)', desfavoravel:'var(--crit)'};
 const ROTULO = {favoravel:'Favorável', atencao:'Atenção', desfavoravel:'Desfavorável'};
@@ -146,15 +155,41 @@ const tip = document.getElementById('tip');
 let ativas = new Set(DADOS.cidades.map(c => c.id));
 
 // ---- cabeçalho ----
-document.getElementById('meta').textContent =
-  'Gerado em ' + DADOS.gerado_em.replace('T',' ') + ' • Região: ' + DADOS.regiao +
-  ' • Requisições: ' + DADOS.requisicoes_usadas + '/' + DADOS.limite_requisicoes;
-document.getElementById('fonte').textContent = 'Fonte: ' + DADOS.fonte;
-if (DADOS.exemplo) {
-  document.getElementById('banner').innerHTML =
-    '<div class="banner"><b>Dados de exemplo.</b> Configure as chaves da ClimAPI ' +
-    'e rode a coleta para ver a previsão real.</div>';
+function renderCabecalho() {
+  document.getElementById('meta').textContent =
+    'Gerado em ' + DADOS.gerado_em.replace('T',' ') + ' • Região: ' + DADOS.regiao +
+    ' • Requisições: ' + DADOS.requisicoes_usadas + '/' + DADOS.limite_requisicoes;
+  document.getElementById('fonte').textContent = 'Fonte: ' + DADOS.fonte;
+  document.getElementById('banner').innerHTML = DADOS.exemplo
+    ? '<div class="banner"><b>Dados de exemplo.</b> Clique em <b>Atualizar agora</b> ' +
+      '(com o servidor rodando) ou configure as chaves da ClimAPI para ver a previsão real.</div>'
+    : '';
 }
+
+// ---- botão "Atualizar agora" (busca dados ao vivo no backend) ----
+const btnAtu = document.getElementById('atualizar');
+const elStatus = document.getElementById('status');
+btnAtu.onclick = async () => {
+  btnAtu.disabled = true; elStatus.className = '';
+  elStatus.textContent = 'Consultando a Embrapa ClimAPI…';
+  try {
+    const r = await fetch('api/atualizar', { method: 'POST' });
+    const novo = await r.json();
+    if (!r.ok || novo.erro) throw new Error(novo.erro || ('HTTP ' + r.status));
+    DADOS = novo;
+    ativas = new Set(DADOS.cidades.filter(c => ativas.has(c.id)).map(c => c.id));
+    if (!ativas.size) ativas = new Set(DADOS.cidades.map(c => c.id));
+    renderCabecalho(); render();
+    elStatus.className = '';
+    elStatus.textContent = 'Atualizado ao vivo em ' + DADOS.gerado_em.replace('T',' ');
+  } catch (e) {
+    elStatus.className = 'err';
+    elStatus.textContent = 'Não foi possível atualizar ao vivo (' + e.message +
+      '). O botão precisa do servidor rodando: python -m src.servidor';
+  } finally {
+    btnAtu.disabled = false;
+  }
+};
 
 // ---- seletor de cidades ----
 const elCid = document.getElementById('cidades');
@@ -351,6 +386,7 @@ document.getElementById('tema').onclick = () => {
 };
 
 function render() { renderKpis(); renderTimelines(); renderCharts(); }
+renderCabecalho();
 document.getElementById('foot').textContent =
   'Delta-T ideal 2–8 °C • vento 3–10 km/h • temperatura ≤ 28 °C • umidade ≥ 60 %. ' +
   'Sempre confira a bula do produto. Painel gerado automaticamente a partir da Embrapa ClimAPI.';

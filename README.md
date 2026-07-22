@@ -61,6 +61,32 @@ python -m src.coleta --listar-variaveis # imprime as variáveis da sua conta Cli
 Abra `docs/index.html` no navegador (ou publique via **GitHub Pages** apontando
 para a pasta `docs/`).
 
+## Botão "Atualizar agora" (dados ao vivo)
+
+O painel tem um botão **⟳ Atualizar agora** que busca a previsão na hora. Ele
+precisa de um pequeno backend rodando (as chaves ficam no servidor, nunca no
+navegador):
+
+```bash
+pip install -r requirements.txt
+set -a && source .env && set +a      # carrega as chaves
+python -m src.servidor               # sobe em http://127.0.0.1:8000
+```
+
+Abra <http://127.0.0.1:8000> e clique no botão — a página consulta a ClimAPI,
+recalcula os indicadores e atualiza os gráficos ao vivo. Cada clique consome
+~15 requisições (o limite da API é 500/dia).
+
+Se você abrir apenas o `docs/index.html` (ou o GitHub Pages, que é estático), o
+botão avisa que precisa do servidor — o Pages continua mostrando a última coleta
+diária. Para o botão funcionar **online**, hospede `src/servidor.py` em um serviço
+que aceite Python (Render, Railway, Fly.io, uma VM etc.) com as duas variáveis de
+ambiente `EMBRAPA_CONSUMER_KEY` e `EMBRAPA_CONSUMER_SECRET` configuradas.
+
+> **Segurança:** as chaves nunca vão para o HTML nem para o repositório (o `.env`
+> está no `.gitignore`). Como as chaves que você enviou passaram pelo chat,
+> gere um novo par na AgroAPI assim que possível.
+
 ## Selecionar / adicionar cidades
 
 Edite [`config/cidades.json`](config/cidades.json). Cada cidade tem `nome`, `uf`,
