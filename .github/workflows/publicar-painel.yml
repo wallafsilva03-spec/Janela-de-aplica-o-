@@ -1,0 +1,65 @@
+name: Publicar painel (GitHub Pages)
+
+# Gera o painel e publica no GitHub Pages:
+#   - todo dia às 07:00 de Brasília (10:00 UTC);
+#   - a cada push nesta branch;
+#   - manualmente pela aba Actions (Run workflow).
+#
+# Se os secrets EMBRAPA_CONSUMER_KEY / EMBRAPA_CONSUMER_SECRET não estiverem
+# configurados, o painel é publicado com DADOS DE EXEMPLO (para a página já
+# subir). Assim que você cadastrar os secrets, a próxima execução mostra a
+# previsão real.
+on:
+  schedule:
+    - cron: "0 10 * * *"   # 10:00 UTC == 07:00 America/Sao_Paulo
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/embrapa-herbicide-opportunities-fe1wrw
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Gerar painel (real; cai para exemplo se faltar chave)
+        env:
+          EMBRAPA_CONSUMER_KEY: ${{ secrets.EMBRAPA_CONSUMER_KEY }}
+          EMBRAPA_CONSUMER_SECRET: ${{ secrets.EMBRAPA_CONSUMER_SECRET }}
+        run: python -m src.coleta --apenas-padrao || python -m src.coleta --exemplo
+
+      - name: Habilitar/configurar Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Enviar artefato do painel
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Publicar no Pages
+        id: deploy
+        uses: actions/deploy-pages@v4

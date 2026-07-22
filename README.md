@@ -43,10 +43,11 @@ pip install -r requirements.txt
 python -m src.coleta --apenas-padrao   # o .env é carregado automaticamente
 ```
 
-**GitHub Actions (recomendado):** em *Settings → Secrets and variables → Actions*,
-crie os secrets `EMBRAPA_CONSUMER_KEY` e `EMBRAPA_CONSUMER_SECRET`. O workflow
-[`.github/workflows/coleta-diaria.yml`](.github/workflows/coleta-diaria.yml) roda
-sozinho às 10:00 UTC (07:00 BRT) e comita o painel atualizado.
+**GitHub Actions + Pages (recomendado):** em *Settings → Secrets and variables →
+Actions*, crie os secrets `EMBRAPA_CONSUMER_KEY` e `EMBRAPA_CONSUMER_SECRET`. O
+workflow [`.github/workflows/publicar-painel.yml`](.github/workflows/publicar-painel.yml)
+roda sozinho às 10:00 UTC (07:00 BRT), gera o painel e publica no **GitHub Pages**.
+Sem os secrets, ele publica com dados de exemplo até você cadastrá-los.
 
 ## Uso
 
