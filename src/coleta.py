@@ -14,7 +14,7 @@ import math
 import random
 from datetime import datetime, timedelta, timezone
 
-from . import config, dashboard
+from . import config, dashboard, noticias
 from .embrapa_client import EmbrapaClimAPI, LimiteRequisicoesError
 from .indicadores import (
     classificar,
@@ -66,10 +66,12 @@ def coletar(apenas_padrao: bool = False) -> dict:
         print(f"[ok] {cid['nome']}: {len(linha)} instantes "
               f"({cliente.requisicoes} requisições até agora)")
 
-    return _montar_resultado(resultado_cidades, cliente.requisicoes)
+    return _montar_resultado(resultado_cidades, cliente.requisicoes,
+                             noticias_itens=noticias.buscar())
 
 
-def _montar_resultado(cidades: list[dict], requisicoes: int, exemplo: bool = False) -> dict:
+def _montar_resultado(cidades: list[dict], requisicoes: int, exemplo: bool = False,
+                      noticias_itens: list[dict] | None = None) -> dict:
     return {
         "gerado_em": datetime.now(FUSO_BR).isoformat(timespec="minutes"),
         "fonte": "Embrapa ClimAPI v1 — modelo NCEP/GFS (NOAA)",
@@ -79,6 +81,7 @@ def _montar_resultado(cidades: list[dict], requisicoes: int, exemplo: bool = Fal
         "limiares": config.LIMIARES,
         "exemplo": exemplo,
         "cidades": cidades,
+        "noticias": noticias_itens or [],
     }
 
 
@@ -122,7 +125,8 @@ def gerar_exemplo() -> dict:
             "regiao": cid.get("regiao", ""), "lat": cid["lat"], "lon": cid["lon"],
             "serie": linha, "resumo": resumir(linha),
         })
-    return _montar_resultado(resultado, requisicoes=0, exemplo=True)
+    return _montar_resultado(resultado, requisicoes=0, exemplo=True,
+                             noticias_itens=noticias.exemplo())
 
 
 # --------------------------------------------------------------------------

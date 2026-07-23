@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-07-22T14:04-03:00",
+  "gerado_em": "2026-07-23T11:24-03:00",
   "fonte": "Embrapa ClimAPI v1 — modelo NCEP/GFS (NOAA)",
   "regiao": "Sudeste",
   "requisicoes_usadas": 0,
@@ -46,372 +46,372 @@
       "lon": -47.8103,
       "serie": [
         {
-          "data": "2026-07-22T14:00-03:00",
-          "temp_c": 30.1,
-          "umidade": 45.0,
-          "vento_kmh": 7.1,
-          "precip_mm": 0.0,
-          "delta_t": 8.62,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-22T17:00-03:00",
-          "temp_c": 29.5,
-          "umidade": 54.0,
-          "vento_kmh": 8.2,
-          "precip_mm": 0.0,
-          "delta_t": 6.95,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-22T20:00-03:00",
-          "temp_c": 24.6,
-          "umidade": 62.0,
-          "vento_kmh": 9.5,
-          "precip_mm": 0.0,
-          "delta_t": 5.17,
-          "classe": "favoravel"
-        },
-        {
-          "data": "2026-07-22T23:00-03:00",
-          "temp_c": 21.3,
-          "umidade": 81.0,
-          "vento_kmh": 5.9,
-          "precip_mm": 0.0,
-          "delta_t": 2.39,
-          "classe": "favoravel"
-        },
-        {
-          "data": "2026-07-23T02:00-03:00",
-          "temp_c": 18.8,
-          "umidade": 87.0,
-          "vento_kmh": 5.2,
-          "precip_mm": 0.0,
-          "delta_t": 1.58,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-23T05:00-03:00",
-          "temp_c": 18.5,
-          "umidade": 86.0,
-          "vento_kmh": 4.0,
-          "precip_mm": 0.0,
-          "delta_t": 1.69,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-23T08:00-03:00",
-          "temp_c": 21.6,
-          "umidade": 72.0,
-          "vento_kmh": 3.9,
-          "precip_mm": 0.0,
-          "delta_t": 3.57,
-          "classe": "favoravel"
-        },
-        {
           "data": "2026-07-23T11:00-03:00",
-          "temp_c": 27.6,
-          "umidade": 61.0,
-          "vento_kmh": 5.1,
+          "temp_c": 27.3,
+          "umidade": 55.0,
+          "vento_kmh": 4.1,
           "precip_mm": 0.0,
-          "delta_t": 5.61,
-          "classe": "favoravel"
+          "delta_t": 6.51,
+          "classe": "atencao"
         },
         {
           "data": "2026-07-23T14:00-03:00",
-          "temp_c": 29.6,
-          "umidade": 49.0,
-          "vento_kmh": 9.3,
+          "temp_c": 30.1,
+          "umidade": 52.0,
+          "vento_kmh": 6.3,
           "precip_mm": 0.0,
-          "delta_t": 7.82,
+          "delta_t": 7.37,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-23T17:00-03:00",
-          "temp_c": 29.9,
-          "umidade": 52.0,
-          "vento_kmh": 10.7,
-          "precip_mm": 0.0,
-          "delta_t": 7.34,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-23T20:00-03:00",
-          "temp_c": 25.1,
-          "umidade": 61.0,
-          "vento_kmh": 8.4,
-          "precip_mm": 0.0,
-          "delta_t": 5.36,
-          "classe": "favoravel"
-        },
-        {
-          "data": "2026-07-23T23:00-03:00",
-          "temp_c": 21.3,
-          "umidade": 80.0,
-          "vento_kmh": 6.5,
-          "precip_mm": 0.0,
-          "delta_t": 2.52,
-          "classe": "favoravel"
-        },
-        {
-          "data": "2026-07-24T02:00-03:00",
-          "temp_c": 19.1,
-          "umidade": 92.0,
-          "vento_kmh": 4.4,
-          "precip_mm": 0.0,
-          "delta_t": 0.97,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-24T05:00-03:00",
-          "temp_c": 18.1,
-          "umidade": 88.0,
-          "vento_kmh": 4.1,
-          "precip_mm": 0.0,
-          "delta_t": 1.44,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-24T08:00-03:00",
-          "temp_c": 22.6,
-          "umidade": 77.0,
-          "vento_kmh": 3.9,
-          "precip_mm": 0.0,
-          "delta_t": 2.97,
-          "classe": "favoravel"
-        },
-        {
-          "data": "2026-07-24T11:00-03:00",
-          "temp_c": 26.5,
-          "umidade": 55.0,
-          "vento_kmh": 4.2,
-          "precip_mm": 0.0,
-          "delta_t": 6.42,
-          "classe": "atencao"
-        },
-        {
-          "data": "2026-07-24T14:00-03:00",
-          "temp_c": 29.2,
-          "umidade": 52.0,
-          "vento_kmh": 9.5,
-          "precip_mm": 0.0,
-          "delta_t": 7.25,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-24T17:00-03:00",
-          "temp_c": 29.5,
-          "umidade": 50.0,
-          "vento_kmh": 11.5,
+          "temp_c": 28.3,
+          "umidade": 49.0,
+          "vento_kmh": 9.9,
           "precip_mm": 0.0,
           "delta_t": 7.63,
           "classe": "desfavoravel"
         },
         {
-          "data": "2026-07-24T20:00-03:00",
-          "temp_c": 25.1,
-          "umidade": 62.0,
-          "vento_kmh": 9.7,
+          "data": "2026-07-23T20:00-03:00",
+          "temp_c": 25.9,
+          "umidade": 65.0,
+          "vento_kmh": 8.3,
           "precip_mm": 0.0,
-          "delta_t": 5.22,
+          "delta_t": 4.85,
           "classe": "favoravel"
         },
         {
-          "data": "2026-07-24T23:00-03:00",
-          "temp_c": 21.2,
-          "umidade": 84.0,
-          "vento_kmh": 6.6,
-          "precip_mm": 1.0,
-          "delta_t": 2.01,
-          "classe": "desfavoravel"
+          "data": "2026-07-23T23:00-03:00",
+          "temp_c": 21.6,
+          "umidade": 77.0,
+          "vento_kmh": 8.3,
+          "precip_mm": 0.0,
+          "delta_t": 2.92,
+          "classe": "favoravel"
         },
         {
-          "data": "2026-07-25T02:00-03:00",
-          "temp_c": 18.2,
+          "data": "2026-07-24T02:00-03:00",
+          "temp_c": 17.9,
           "umidade": 88.0,
-          "vento_kmh": 2.2,
+          "vento_kmh": 5.8,
           "precip_mm": 0.0,
           "delta_t": 1.44,
           "classe": "desfavoravel"
         },
         {
-          "data": "2026-07-25T05:00-03:00",
-          "temp_c": 19.4,
-          "umidade": 88.0,
-          "vento_kmh": 0.5,
+          "data": "2026-07-24T05:00-03:00",
+          "temp_c": 18.0,
+          "umidade": 86.0,
+          "vento_kmh": 3.5,
           "precip_mm": 0.0,
-          "delta_t": 1.47,
+          "delta_t": 1.68,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-24T08:00-03:00",
+          "temp_c": 23.1,
+          "umidade": 78.0,
+          "vento_kmh": 2.7,
+          "precip_mm": 0.0,
+          "delta_t": 2.86,
+          "classe": "atencao"
+        },
+        {
+          "data": "2026-07-24T11:00-03:00",
+          "temp_c": 26.8,
+          "umidade": 59.0,
+          "vento_kmh": 6.3,
+          "precip_mm": 0.0,
+          "delta_t": 5.83,
+          "classe": "atencao"
+        },
+        {
+          "data": "2026-07-24T14:00-03:00",
+          "temp_c": 30.5,
+          "umidade": 49.0,
+          "vento_kmh": 8.8,
+          "precip_mm": 0.0,
+          "delta_t": 7.95,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-24T17:00-03:00",
+          "temp_c": 28.8,
+          "umidade": 48.0,
+          "vento_kmh": 8.8,
+          "precip_mm": 0.0,
+          "delta_t": 7.88,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-24T20:00-03:00",
+          "temp_c": 25.8,
+          "umidade": 63.0,
+          "vento_kmh": 8.9,
+          "precip_mm": 0.0,
+          "delta_t": 5.13,
+          "classe": "favoravel"
+        },
+        {
+          "data": "2026-07-24T23:00-03:00",
+          "temp_c": 21.9,
+          "umidade": 82.0,
+          "vento_kmh": 7.5,
+          "precip_mm": 0.0,
+          "delta_t": 2.29,
+          "classe": "favoravel"
+        },
+        {
+          "data": "2026-07-25T02:00-03:00",
+          "temp_c": 17.5,
+          "umidade": 90.0,
+          "vento_kmh": 6.0,
+          "precip_mm": 0.0,
+          "delta_t": 1.19,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-25T05:00-03:00",
+          "temp_c": 18.9,
+          "umidade": 91.0,
+          "vento_kmh": 3.5,
+          "precip_mm": 0.0,
+          "delta_t": 1.09,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-25T08:00-03:00",
-          "temp_c": 23.4,
-          "umidade": 76.0,
-          "vento_kmh": 4.4,
+          "temp_c": 21.9,
+          "umidade": 72.0,
+          "vento_kmh": 1.8,
           "precip_mm": 0.0,
-          "delta_t": 3.14,
-          "classe": "favoravel"
+          "delta_t": 3.59,
+          "classe": "desfavoravel"
         },
         {
           "data": "2026-07-25T11:00-03:00",
-          "temp_c": 26.0,
-          "umidade": 61.0,
-          "vento_kmh": 5.7,
+          "temp_c": 26.4,
+          "umidade": 63.0,
+          "vento_kmh": 6.5,
           "precip_mm": 0.0,
-          "delta_t": 5.45,
+          "delta_t": 5.19,
           "classe": "favoravel"
         },
         {
           "data": "2026-07-25T14:00-03:00",
-          "temp_c": 29.3,
-          "umidade": 50.0,
-          "vento_kmh": 6.4,
+          "temp_c": 30.1,
+          "umidade": 48.0,
+          "vento_kmh": 9.7,
           "precip_mm": 0.0,
-          "delta_t": 7.6,
+          "delta_t": 8.07,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-25T17:00-03:00",
-          "temp_c": 29.1,
-          "umidade": 55.0,
-          "vento_kmh": 11.4,
+          "temp_c": 28.7,
+          "umidade": 49.0,
+          "vento_kmh": 10.1,
           "precip_mm": 0.0,
-          "delta_t": 6.73,
-          "classe": "atencao"
+          "delta_t": 7.69,
+          "classe": "desfavoravel"
         },
         {
           "data": "2026-07-25T20:00-03:00",
-          "temp_c": 25.6,
-          "umidade": 62.0,
-          "vento_kmh": 11.1,
-          "precip_mm": 0.0,
-          "delta_t": 5.26,
-          "classe": "atencao"
+          "temp_c": 25.7,
+          "umidade": 67.0,
+          "vento_kmh": 9.1,
+          "precip_mm": 1.0,
+          "delta_t": 4.54,
+          "classe": "desfavoravel"
         },
         {
           "data": "2026-07-25T23:00-03:00",
-          "temp_c": 20.6,
-          "umidade": 82.0,
-          "vento_kmh": 7.5,
-          "precip_mm": 0.1,
-          "delta_t": 2.24,
+          "temp_c": 21.0,
+          "umidade": 78.0,
+          "vento_kmh": 5.2,
+          "precip_mm": 0.0,
+          "delta_t": 2.76,
           "classe": "favoravel"
         },
         {
           "data": "2026-07-26T02:00-03:00",
-          "temp_c": 18.3,
-          "umidade": 93.0,
-          "vento_kmh": 4.1,
+          "temp_c": 18.8,
+          "umidade": 91.0,
+          "vento_kmh": 2.3,
           "precip_mm": 0.0,
-          "delta_t": 0.84,
+          "delta_t": 1.09,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-26T05:00-03:00",
-          "temp_c": 17.8,
-          "umidade": 92.0,
-          "vento_kmh": 3.7,
+          "temp_c": 19.8,
+          "umidade": 89.0,
+          "vento_kmh": 4.0,
           "precip_mm": 0.0,
-          "delta_t": 0.96,
+          "delta_t": 1.35,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-26T08:00-03:00",
-          "temp_c": 22.1,
-          "umidade": 72.0,
-          "vento_kmh": 4.0,
+          "temp_c": 21.5,
+          "umidade": 77.0,
+          "vento_kmh": 3.3,
           "precip_mm": 0.0,
-          "delta_t": 3.6,
+          "delta_t": 2.92,
           "classe": "favoravel"
         },
         {
           "data": "2026-07-26T11:00-03:00",
-          "temp_c": 26.2,
-          "umidade": 59.0,
-          "vento_kmh": 3.2,
+          "temp_c": 26.5,
+          "umidade": 60.0,
+          "vento_kmh": 3.4,
           "precip_mm": 0.0,
-          "delta_t": 5.77,
-          "classe": "atencao"
+          "delta_t": 5.65,
+          "classe": "favoravel"
         },
         {
           "data": "2026-07-26T14:00-03:00",
-          "temp_c": 30.3,
-          "umidade": 46.0,
-          "vento_kmh": 7.9,
+          "temp_c": 29.7,
+          "umidade": 52.0,
+          "vento_kmh": 9.5,
           "precip_mm": 0.0,
-          "delta_t": 8.47,
+          "delta_t": 7.31,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-26T17:00-03:00",
-          "temp_c": 28.7,
-          "umidade": 54.0,
-          "vento_kmh": 9.6,
+          "temp_c": 29.2,
+          "umidade": 48.0,
+          "vento_kmh": 11.5,
           "precip_mm": 0.0,
-          "delta_t": 6.85,
+          "delta_t": 7.94,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-26T20:00-03:00",
-          "temp_c": 26.0,
-          "umidade": 62.0,
-          "vento_kmh": 8.7,
-          "precip_mm": 0.0,
-          "delta_t": 5.3,
+          "temp_c": 25.1,
+          "umidade": 65.0,
+          "vento_kmh": 9.9,
+          "precip_mm": 0.1,
+          "delta_t": 4.78,
           "classe": "favoravel"
         },
         {
           "data": "2026-07-26T23:00-03:00",
-          "temp_c": 21.3,
-          "umidade": 81.0,
-          "vento_kmh": 7.1,
+          "temp_c": 21.1,
+          "umidade": 83.0,
+          "vento_kmh": 7.2,
           "precip_mm": 0.0,
-          "delta_t": 2.39,
+          "delta_t": 2.13,
           "classe": "favoravel"
         },
         {
           "data": "2026-07-27T02:00-03:00",
-          "temp_c": 17.9,
-          "umidade": 92.0,
-          "vento_kmh": 2.9,
+          "temp_c": 17.2,
+          "umidade": 95.0,
+          "vento_kmh": 5.5,
           "precip_mm": 0.0,
-          "delta_t": 0.96,
+          "delta_t": 0.6,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-27T05:00-03:00",
-          "temp_c": 19.1,
-          "umidade": 87.0,
-          "vento_kmh": 3.8,
+          "temp_c": 18.4,
+          "umidade": 86.0,
+          "vento_kmh": 3.6,
           "precip_mm": 0.0,
-          "delta_t": 1.58,
+          "delta_t": 1.69,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-27T08:00-03:00",
           "temp_c": 21.6,
-          "umidade": 74.0,
-          "vento_kmh": 3.2,
+          "umidade": 76.0,
+          "vento_kmh": 0.8,
           "precip_mm": 0.0,
-          "delta_t": 3.31,
-          "classe": "favoravel"
+          "delta_t": 3.05,
+          "classe": "desfavoravel"
         },
         {
           "data": "2026-07-27T11:00-03:00",
-          "temp_c": 27.9,
-          "umidade": 60.0,
+          "temp_c": 27.5,
+          "umidade": 56.0,
           "vento_kmh": 4.9,
           "precip_mm": 0.0,
-          "delta_t": 5.79,
+          "delta_t": 6.38,
+          "classe": "atencao"
+        },
+        {
+          "data": "2026-07-27T14:00-03:00",
+          "temp_c": 29.3,
+          "umidade": 52.0,
+          "vento_kmh": 7.7,
+          "precip_mm": 0.0,
+          "delta_t": 7.26,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-27T17:00-03:00",
+          "temp_c": 29.7,
+          "umidade": 49.0,
+          "vento_kmh": 9.1,
+          "precip_mm": 0.0,
+          "delta_t": 7.84,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-27T20:00-03:00",
+          "temp_c": 25.9,
+          "umidade": 64.0,
+          "vento_kmh": 9.5,
+          "precip_mm": 0.0,
+          "delta_t": 5.0,
           "classe": "favoravel"
+        },
+        {
+          "data": "2026-07-27T23:00-03:00",
+          "temp_c": 20.7,
+          "umidade": 82.0,
+          "vento_kmh": 6.0,
+          "precip_mm": 0.0,
+          "delta_t": 2.25,
+          "classe": "favoravel"
+        },
+        {
+          "data": "2026-07-28T02:00-03:00",
+          "temp_c": 18.5,
+          "umidade": 89.0,
+          "vento_kmh": 5.6,
+          "precip_mm": 0.0,
+          "delta_t": 1.33,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-28T05:00-03:00",
+          "temp_c": 17.9,
+          "umidade": 87.0,
+          "vento_kmh": 2.8,
+          "precip_mm": 0.0,
+          "delta_t": 1.56,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-28T08:00-03:00",
+          "temp_c": 23.3,
+          "umidade": 76.0,
+          "vento_kmh": 2.4,
+          "precip_mm": 0.0,
+          "delta_t": 3.14,
+          "classe": "atencao"
         }
       ],
       "resumo": {
-        "horas_favoraveis": 16,
-        "horas_atencao": 4,
-        "horas_desfavoraveis": 20,
+        "horas_favoraveis": 12,
+        "horas_atencao": 5,
+        "horas_desfavoraveis": 23,
         "total_instantes": 40,
-        "proxima_janela": "2026-07-22T20:00-03:00"
+        "proxima_janela": "2026-07-23T20:00-03:00"
       }
     },
     {
@@ -423,372 +423,372 @@
       "lon": -47.8908,
       "serie": [
         {
-          "data": "2026-07-22T14:00-03:00",
-          "temp_c": 31.9,
-          "umidade": 46.0,
-          "vento_kmh": 6.4,
-          "precip_mm": 0.0,
-          "delta_t": 8.72,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-22T17:00-03:00",
-          "temp_c": 30.5,
-          "umidade": 51.0,
-          "vento_kmh": 10.8,
-          "precip_mm": 0.0,
-          "delta_t": 7.6,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-22T20:00-03:00",
-          "temp_c": 28.0,
-          "umidade": 61.0,
-          "vento_kmh": 9.1,
-          "precip_mm": 0.0,
-          "delta_t": 5.64,
-          "classe": "favoravel"
-        },
-        {
-          "data": "2026-07-22T23:00-03:00",
-          "temp_c": 23.2,
-          "umidade": 79.0,
-          "vento_kmh": 5.8,
-          "precip_mm": 0.0,
-          "delta_t": 2.73,
-          "classe": "favoravel"
-        },
-        {
-          "data": "2026-07-23T02:00-03:00",
-          "temp_c": 19.5,
-          "umidade": 89.0,
-          "vento_kmh": 3.0,
-          "precip_mm": 0.0,
-          "delta_t": 1.35,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-23T05:00-03:00",
-          "temp_c": 20.2,
-          "umidade": 92.0,
-          "vento_kmh": 2.3,
-          "precip_mm": 1.0,
-          "delta_t": 0.98,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-23T08:00-03:00",
-          "temp_c": 24.6,
-          "umidade": 79.0,
-          "vento_kmh": 4.2,
-          "precip_mm": 0.0,
-          "delta_t": 2.79,
-          "classe": "favoravel"
-        },
-        {
           "data": "2026-07-23T11:00-03:00",
-          "temp_c": 27.8,
-          "umidade": 59.0,
-          "vento_kmh": 3.8,
+          "temp_c": 29.1,
+          "umidade": 57.0,
+          "vento_kmh": 3.4,
           "precip_mm": 0.0,
-          "delta_t": 5.94,
+          "delta_t": 6.4,
           "classe": "atencao"
         },
         {
           "data": "2026-07-23T14:00-03:00",
-          "temp_c": 30.4,
+          "temp_c": 31.1,
           "umidade": 48.0,
-          "vento_kmh": 9.9,
+          "vento_kmh": 8.9,
           "precip_mm": 0.0,
-          "delta_t": 8.12,
+          "delta_t": 8.22,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-23T17:00-03:00",
-          "temp_c": 31.3,
-          "umidade": 51.0,
-          "vento_kmh": 9.6,
+          "temp_c": 31.7,
+          "umidade": 48.0,
+          "vento_kmh": 9.5,
           "precip_mm": 0.0,
-          "delta_t": 7.7,
+          "delta_t": 8.31,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-23T20:00-03:00",
-          "temp_c": 28.0,
-          "umidade": 65.0,
-          "vento_kmh": 10.3,
+          "temp_c": 27.8,
+          "umidade": 62.0,
+          "vento_kmh": 8.2,
           "precip_mm": 0.0,
-          "delta_t": 5.03,
-          "classe": "atencao"
+          "delta_t": 5.47,
+          "classe": "favoravel"
         },
         {
           "data": "2026-07-23T23:00-03:00",
-          "temp_c": 23.4,
-          "umidade": 82.0,
-          "vento_kmh": 7.2,
+          "temp_c": 22.3,
+          "umidade": 79.0,
+          "vento_kmh": 6.0,
           "precip_mm": 0.0,
-          "delta_t": 2.34,
+          "delta_t": 2.69,
           "classe": "favoravel"
         },
         {
           "data": "2026-07-24T02:00-03:00",
-          "temp_c": 18.8,
-          "umidade": 92.0,
-          "vento_kmh": 4.0,
-          "precip_mm": 0.0,
-          "delta_t": 0.97,
+          "temp_c": 19.6,
+          "umidade": 94.0,
+          "vento_kmh": 4.2,
+          "precip_mm": 1.0,
+          "delta_t": 0.73,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-24T05:00-03:00",
-          "temp_c": 19.6,
+          "temp_c": 21.0,
           "umidade": 93.0,
-          "vento_kmh": 0.5,
+          "vento_kmh": 3.8,
           "precip_mm": 0.0,
-          "delta_t": 0.86,
+          "delta_t": 0.87,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-24T08:00-03:00",
-          "temp_c": 24.3,
-          "umidade": 74.0,
-          "vento_kmh": 1.0,
+          "temp_c": 23.3,
+          "umidade": 76.0,
+          "vento_kmh": 1.4,
           "precip_mm": 0.0,
-          "delta_t": 3.46,
+          "delta_t": 3.14,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-24T11:00-03:00",
-          "temp_c": 28.0,
-          "umidade": 60.0,
-          "vento_kmh": 5.4,
+          "temp_c": 27.6,
+          "umidade": 58.0,
+          "vento_kmh": 6.9,
           "precip_mm": 0.0,
-          "delta_t": 5.8,
-          "classe": "favoravel"
+          "delta_t": 6.07,
+          "classe": "atencao"
         },
         {
           "data": "2026-07-24T14:00-03:00",
-          "temp_c": 31.5,
-          "umidade": 49.0,
-          "vento_kmh": 9.7,
+          "temp_c": 31.9,
+          "umidade": 48.0,
+          "vento_kmh": 7.7,
           "precip_mm": 0.0,
-          "delta_t": 8.1,
+          "delta_t": 8.34,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-24T17:00-03:00",
-          "temp_c": 30.2,
-          "umidade": 50.0,
-          "vento_kmh": 10.6,
+          "temp_c": 31.7,
+          "umidade": 51.0,
+          "vento_kmh": 10.7,
           "precip_mm": 0.0,
-          "delta_t": 7.73,
+          "delta_t": 7.76,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-24T20:00-03:00",
-          "temp_c": 26.7,
-          "umidade": 66.0,
-          "vento_kmh": 7.8,
+          "temp_c": 28.0,
+          "umidade": 65.0,
+          "vento_kmh": 9.6,
           "precip_mm": 0.0,
-          "delta_t": 4.77,
+          "delta_t": 5.03,
           "classe": "favoravel"
         },
         {
           "data": "2026-07-24T23:00-03:00",
-          "temp_c": 23.5,
-          "umidade": 85.0,
-          "vento_kmh": 5.3,
+          "temp_c": 21.6,
+          "umidade": 82.0,
+          "vento_kmh": 7.0,
           "precip_mm": 0.0,
-          "delta_t": 1.94,
-          "classe": "desfavoravel"
+          "delta_t": 2.28,
+          "classe": "favoravel"
         },
         {
           "data": "2026-07-25T02:00-03:00",
-          "temp_c": 20.6,
-          "umidade": 94.0,
-          "vento_kmh": 5.5,
+          "temp_c": 19.0,
+          "umidade": 95.0,
+          "vento_kmh": 2.3,
           "precip_mm": 0.0,
-          "delta_t": 0.74,
+          "delta_t": 0.61,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-25T05:00-03:00",
-          "temp_c": 19.6,
-          "umidade": 92.0,
+          "temp_c": 20.7,
+          "umidade": 87.0,
+          "vento_kmh": 0.6,
+          "precip_mm": 0.0,
+          "delta_t": 1.62,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-25T08:00-03:00",
+          "temp_c": 23.4,
+          "umidade": 76.0,
           "vento_kmh": 3.0,
+          "precip_mm": 0.0,
+          "delta_t": 3.14,
+          "classe": "favoravel"
+        },
+        {
+          "data": "2026-07-25T11:00-03:00",
+          "temp_c": 28.7,
+          "umidade": 59.0,
+          "vento_kmh": 6.7,
+          "precip_mm": 0.0,
+          "delta_t": 6.03,
+          "classe": "atencao"
+        },
+        {
+          "data": "2026-07-25T14:00-03:00",
+          "temp_c": 30.8,
+          "umidade": 48.0,
+          "vento_kmh": 8.7,
+          "precip_mm": 0.0,
+          "delta_t": 8.18,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-25T17:00-03:00",
+          "temp_c": 30.3,
+          "umidade": 53.0,
+          "vento_kmh": 8.2,
+          "precip_mm": 0.0,
+          "delta_t": 7.22,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-25T20:00-03:00",
+          "temp_c": 28.0,
+          "umidade": 68.0,
+          "vento_kmh": 7.8,
+          "precip_mm": 0.0,
+          "delta_t": 4.57,
+          "classe": "favoravel"
+        },
+        {
+          "data": "2026-07-25T23:00-03:00",
+          "temp_c": 23.4,
+          "umidade": 84.0,
+          "vento_kmh": 8.6,
+          "precip_mm": 0.0,
+          "delta_t": 2.07,
+          "classe": "favoravel"
+        },
+        {
+          "data": "2026-07-26T02:00-03:00",
+          "temp_c": 19.0,
+          "umidade": 94.0,
+          "vento_kmh": 4.8,
+          "precip_mm": 0.0,
+          "delta_t": 0.73,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-26T05:00-03:00",
+          "temp_c": 21.3,
+          "umidade": 90.0,
+          "vento_kmh": 0.5,
+          "precip_mm": 0.0,
+          "delta_t": 1.25,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-26T08:00-03:00",
+          "temp_c": 23.5,
+          "umidade": 77.0,
+          "vento_kmh": 4.3,
+          "precip_mm": 0.0,
+          "delta_t": 3.01,
+          "classe": "favoravel"
+        },
+        {
+          "data": "2026-07-26T11:00-03:00",
+          "temp_c": 27.7,
+          "umidade": 59.0,
+          "vento_kmh": 4.1,
+          "precip_mm": 0.0,
+          "delta_t": 5.93,
+          "classe": "atencao"
+        },
+        {
+          "data": "2026-07-26T14:00-03:00",
+          "temp_c": 31.7,
+          "umidade": 46.0,
+          "vento_kmh": 8.5,
+          "precip_mm": 0.0,
+          "delta_t": 8.69,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-26T17:00-03:00",
+          "temp_c": 30.7,
+          "umidade": 54.0,
+          "vento_kmh": 11.2,
+          "precip_mm": 0.0,
+          "delta_t": 7.1,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-26T20:00-03:00",
+          "temp_c": 26.6,
+          "umidade": 60.0,
+          "vento_kmh": 10.5,
+          "precip_mm": 0.0,
+          "delta_t": 5.66,
+          "classe": "atencao"
+        },
+        {
+          "data": "2026-07-26T23:00-03:00",
+          "temp_c": 22.0,
+          "umidade": 83.0,
+          "vento_kmh": 7.2,
+          "precip_mm": 0.0,
+          "delta_t": 2.16,
+          "classe": "favoravel"
+        },
+        {
+          "data": "2026-07-27T02:00-03:00",
+          "temp_c": 18.7,
+          "umidade": 88.0,
+          "vento_kmh": 5.5,
+          "precip_mm": 0.0,
+          "delta_t": 1.45,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-27T05:00-03:00",
+          "temp_c": 20.4,
+          "umidade": 92.0,
+          "vento_kmh": 2.5,
+          "precip_mm": 0.0,
+          "delta_t": 0.99,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-27T08:00-03:00",
+          "temp_c": 23.6,
+          "umidade": 79.0,
+          "vento_kmh": 3.7,
+          "precip_mm": 0.0,
+          "delta_t": 2.75,
+          "classe": "favoravel"
+        },
+        {
+          "data": "2026-07-27T11:00-03:00",
+          "temp_c": 29.3,
+          "umidade": 57.0,
+          "vento_kmh": 4.0,
+          "precip_mm": 0.1,
+          "delta_t": 6.42,
+          "classe": "atencao"
+        },
+        {
+          "data": "2026-07-27T14:00-03:00",
+          "temp_c": 32.1,
+          "umidade": 48.0,
+          "vento_kmh": 8.5,
+          "precip_mm": 0.7,
+          "delta_t": 8.37,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-27T17:00-03:00",
+          "temp_c": 31.4,
+          "umidade": 55.0,
+          "vento_kmh": 11.1,
+          "precip_mm": 0.0,
+          "delta_t": 7.01,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-27T20:00-03:00",
+          "temp_c": 26.1,
+          "umidade": 66.0,
+          "vento_kmh": 8.8,
+          "precip_mm": 0.0,
+          "delta_t": 4.72,
+          "classe": "favoravel"
+        },
+        {
+          "data": "2026-07-27T23:00-03:00",
+          "temp_c": 23.1,
+          "umidade": 84.0,
+          "vento_kmh": 8.3,
+          "precip_mm": 0.0,
+          "delta_t": 2.07,
+          "classe": "favoravel"
+        },
+        {
+          "data": "2026-07-28T02:00-03:00",
+          "temp_c": 20.3,
+          "umidade": 88.0,
+          "vento_kmh": 5.5,
+          "precip_mm": 0.0,
+          "delta_t": 1.48,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-28T05:00-03:00",
+          "temp_c": 19.7,
+          "umidade": 92.0,
+          "vento_kmh": 2.0,
           "precip_mm": 0.0,
           "delta_t": 0.98,
           "classe": "desfavoravel"
         },
         {
-          "data": "2026-07-25T08:00-03:00",
-          "temp_c": 24.9,
-          "umidade": 77.0,
+          "data": "2026-07-28T08:00-03:00",
+          "temp_c": 24.5,
+          "umidade": 74.0,
           "vento_kmh": 0.6,
           "precip_mm": 0.0,
-          "delta_t": 3.08,
+          "delta_t": 3.47,
           "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-25T11:00-03:00",
-          "temp_c": 28.1,
-          "umidade": 60.0,
-          "vento_kmh": 6.7,
-          "precip_mm": 0.0,
-          "delta_t": 5.81,
-          "classe": "atencao"
-        },
-        {
-          "data": "2026-07-25T14:00-03:00",
-          "temp_c": 30.5,
-          "umidade": 49.0,
-          "vento_kmh": 7.1,
-          "precip_mm": 0.0,
-          "delta_t": 7.95,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-25T17:00-03:00",
-          "temp_c": 31.1,
-          "umidade": 49.0,
-          "vento_kmh": 10.4,
-          "precip_mm": 0.0,
-          "delta_t": 8.04,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-25T20:00-03:00",
-          "temp_c": 27.0,
-          "umidade": 68.0,
-          "vento_kmh": 10.8,
-          "precip_mm": 0.0,
-          "delta_t": 4.49,
-          "classe": "atencao"
-        },
-        {
-          "data": "2026-07-25T23:00-03:00",
-          "temp_c": 22.1,
-          "umidade": 77.0,
-          "vento_kmh": 8.1,
-          "precip_mm": 0.0,
-          "delta_t": 2.95,
-          "classe": "favoravel"
-        },
-        {
-          "data": "2026-07-26T02:00-03:00",
-          "temp_c": 19.2,
-          "umidade": 93.0,
-          "vento_kmh": 4.2,
-          "precip_mm": 0.0,
-          "delta_t": 0.85,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-26T05:00-03:00",
-          "temp_c": 19.3,
-          "umidade": 86.0,
-          "vento_kmh": 3.7,
-          "precip_mm": 0.0,
-          "delta_t": 1.71,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-26T08:00-03:00",
-          "temp_c": 24.0,
-          "umidade": 78.0,
-          "vento_kmh": 2.9,
-          "precip_mm": 0.0,
-          "delta_t": 2.9,
-          "classe": "atencao"
-        },
-        {
-          "data": "2026-07-26T11:00-03:00",
-          "temp_c": 28.1,
-          "umidade": 62.0,
-          "vento_kmh": 6.1,
-          "precip_mm": 0.0,
-          "delta_t": 5.5,
-          "classe": "atencao"
-        },
-        {
-          "data": "2026-07-26T14:00-03:00",
-          "temp_c": 32.1,
-          "umidade": 46.0,
-          "vento_kmh": 7.0,
-          "precip_mm": 0.1,
-          "delta_t": 8.75,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-26T17:00-03:00",
-          "temp_c": 31.5,
-          "umidade": 50.0,
-          "vento_kmh": 10.3,
-          "precip_mm": 0.7,
-          "delta_t": 7.91,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-26T20:00-03:00",
-          "temp_c": 27.8,
-          "umidade": 68.0,
-          "vento_kmh": 10.7,
-          "precip_mm": 0.0,
-          "delta_t": 4.55,
-          "classe": "atencao"
-        },
-        {
-          "data": "2026-07-26T23:00-03:00",
-          "temp_c": 21.5,
-          "umidade": 83.0,
-          "vento_kmh": 6.4,
-          "precip_mm": 0.0,
-          "delta_t": 2.15,
-          "classe": "favoravel"
-        },
-        {
-          "data": "2026-07-27T02:00-03:00",
-          "temp_c": 20.3,
-          "umidade": 94.0,
-          "vento_kmh": 5.2,
-          "precip_mm": 0.0,
-          "delta_t": 0.74,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-27T05:00-03:00",
-          "temp_c": 20.9,
-          "umidade": 86.0,
-          "vento_kmh": 3.6,
-          "precip_mm": 0.0,
-          "delta_t": 1.75,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-27T08:00-03:00",
-          "temp_c": 23.4,
-          "umidade": 78.0,
-          "vento_kmh": 2.4,
-          "precip_mm": 0.0,
-          "delta_t": 2.87,
-          "classe": "atencao"
-        },
-        {
-          "data": "2026-07-27T11:00-03:00",
-          "temp_c": 29.1,
-          "umidade": 57.0,
-          "vento_kmh": 3.1,
-          "precip_mm": 0.0,
-          "delta_t": 6.4,
-          "classe": "atencao"
         }
       ],
       "resumo": {
-        "horas_favoraveis": 8,
-        "horas_atencao": 9,
-        "horas_desfavoraveis": 23,
+        "horas_favoraveis": 12,
+        "horas_atencao": 6,
+        "horas_desfavoraveis": 22,
         "total_instantes": 40,
-        "proxima_janela": "2026-07-22T20:00-03:00"
+        "proxima_janela": "2026-07-23T20:00-03:00"
       }
     },
     {
@@ -800,373 +800,403 @@
       "lon": -47.7686,
       "serie": [
         {
-          "data": "2026-07-22T14:00-03:00",
-          "temp_c": 33.5,
-          "umidade": 52.0,
-          "vento_kmh": 7.1,
-          "precip_mm": 0.0,
-          "delta_t": 7.82,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-22T17:00-03:00",
-          "temp_c": 32.0,
-          "umidade": 55.0,
-          "vento_kmh": 10.0,
-          "precip_mm": 0.0,
-          "delta_t": 7.08,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-22T20:00-03:00",
-          "temp_c": 27.8,
-          "umidade": 68.0,
-          "vento_kmh": 8.2,
-          "precip_mm": 0.0,
-          "delta_t": 4.55,
-          "classe": "favoravel"
-        },
-        {
-          "data": "2026-07-22T23:00-03:00",
-          "temp_c": 23.5,
-          "umidade": 78.0,
-          "vento_kmh": 6.8,
-          "precip_mm": 0.0,
-          "delta_t": 2.88,
-          "classe": "favoravel"
-        },
-        {
-          "data": "2026-07-23T02:00-03:00",
-          "temp_c": 20.8,
-          "umidade": 92.0,
-          "vento_kmh": 4.0,
-          "precip_mm": 0.0,
-          "delta_t": 0.99,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-23T05:00-03:00",
-          "temp_c": 22.0,
-          "umidade": 87.0,
-          "vento_kmh": 3.0,
-          "precip_mm": 0.7,
-          "delta_t": 1.65,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-23T08:00-03:00",
-          "temp_c": 25.5,
-          "umidade": 77.0,
-          "vento_kmh": 3.5,
-          "precip_mm": 0.0,
-          "delta_t": 3.11,
-          "classe": "favoravel"
-        },
-        {
           "data": "2026-07-23T11:00-03:00",
-          "temp_c": 29.7,
-          "umidade": 56.0,
-          "vento_kmh": 5.6,
+          "temp_c": 30.7,
+          "umidade": 63.0,
+          "vento_kmh": 4.1,
           "precip_mm": 0.0,
-          "delta_t": 6.63,
-          "classe": "atencao"
+          "delta_t": 5.58,
+          "classe": "desfavoravel"
         },
         {
           "data": "2026-07-23T14:00-03:00",
-          "temp_c": 32.4,
-          "umidade": 52.0,
-          "vento_kmh": 8.9,
+          "temp_c": 32.6,
+          "umidade": 53.0,
+          "vento_kmh": 8.1,
           "precip_mm": 0.0,
-          "delta_t": 7.67,
+          "delta_t": 7.51,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-23T17:00-03:00",
-          "temp_c": 31.8,
-          "umidade": 50.0,
-          "vento_kmh": 9.5,
+          "temp_c": 31.4,
+          "umidade": 55.0,
+          "vento_kmh": 8.6,
           "precip_mm": 0.0,
-          "delta_t": 7.96,
+          "delta_t": 7.01,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-23T20:00-03:00",
-          "temp_c": 27.8,
-          "umidade": 64.0,
-          "vento_kmh": 11.2,
+          "temp_c": 28.1,
+          "umidade": 61.0,
+          "vento_kmh": 9.2,
           "precip_mm": 0.0,
-          "delta_t": 5.16,
+          "delta_t": 5.65,
           "classe": "atencao"
         },
         {
           "data": "2026-07-23T23:00-03:00",
-          "temp_c": 24.8,
+          "temp_c": 23.6,
           "umidade": 82.0,
-          "vento_kmh": 6.2,
+          "vento_kmh": 7.1,
           "precip_mm": 0.0,
-          "delta_t": 2.39,
+          "delta_t": 2.35,
           "classe": "favoravel"
         },
         {
           "data": "2026-07-24T02:00-03:00",
-          "temp_c": 20.2,
-          "umidade": 90.0,
-          "vento_kmh": 3.7,
-          "precip_mm": 0.0,
-          "delta_t": 1.23,
+          "temp_c": 21.4,
+          "umidade": 89.0,
+          "vento_kmh": 4.8,
+          "precip_mm": 0.7,
+          "delta_t": 1.38,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-24T05:00-03:00",
-          "temp_c": 22.1,
-          "umidade": 89.0,
-          "vento_kmh": 1.9,
+          "temp_c": 21.9,
+          "umidade": 91.0,
+          "vento_kmh": 3.1,
           "precip_mm": 0.0,
-          "delta_t": 1.39,
+          "delta_t": 1.13,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-24T08:00-03:00",
-          "temp_c": 26.2,
-          "umidade": 78.0,
-          "vento_kmh": 1.2,
+          "temp_c": 25.2,
+          "umidade": 72.0,
+          "vento_kmh": 3.2,
           "precip_mm": 0.0,
-          "delta_t": 3.0,
-          "classe": "desfavoravel"
+          "delta_t": 3.79,
+          "classe": "favoravel"
         },
         {
           "data": "2026-07-24T11:00-03:00",
-          "temp_c": 30.3,
-          "umidade": 58.0,
-          "vento_kmh": 6.2,
+          "temp_c": 29.6,
+          "umidade": 62.0,
+          "vento_kmh": 5.8,
           "precip_mm": 0.0,
-          "delta_t": 6.37,
-          "classe": "desfavoravel"
+          "delta_t": 5.64,
+          "classe": "atencao"
         },
         {
           "data": "2026-07-24T14:00-03:00",
-          "temp_c": 33.1,
-          "umidade": 47.0,
-          "vento_kmh": 6.8,
+          "temp_c": 32.4,
+          "umidade": 48.0,
+          "vento_kmh": 7.6,
           "precip_mm": 0.0,
-          "delta_t": 8.71,
+          "delta_t": 8.42,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-24T17:00-03:00",
-          "temp_c": 32.1,
-          "umidade": 54.0,
-          "vento_kmh": 8.2,
+          "temp_c": 31.5,
+          "umidade": 50.0,
+          "vento_kmh": 11.6,
           "precip_mm": 0.0,
-          "delta_t": 7.27,
+          "delta_t": 7.91,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-24T20:00-03:00",
-          "temp_c": 28.8,
-          "umidade": 62.0,
-          "vento_kmh": 10.2,
+          "temp_c": 29.4,
+          "umidade": 65.0,
+          "vento_kmh": 8.7,
           "precip_mm": 0.0,
-          "delta_t": 5.56,
+          "delta_t": 5.14,
           "classe": "atencao"
         },
         {
           "data": "2026-07-24T23:00-03:00",
-          "temp_c": 23.5,
-          "umidade": 82.0,
-          "vento_kmh": 5.1,
+          "temp_c": 23.0,
+          "umidade": 79.0,
+          "vento_kmh": 6.8,
           "precip_mm": 0.0,
-          "delta_t": 2.34,
+          "delta_t": 2.72,
           "classe": "favoravel"
         },
         {
           "data": "2026-07-25T02:00-03:00",
-          "temp_c": 21.7,
-          "umidade": 88.0,
-          "vento_kmh": 3.7,
-          "precip_mm": 0.8,
-          "delta_t": 1.51,
+          "temp_c": 21.5,
+          "umidade": 91.0,
+          "vento_kmh": 3.8,
+          "precip_mm": 0.0,
+          "delta_t": 1.13,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-25T05:00-03:00",
-          "temp_c": 21.8,
-          "umidade": 85.0,
-          "vento_kmh": 1.1,
+          "temp_c": 22.6,
+          "umidade": 91.0,
+          "vento_kmh": 0.8,
           "precip_mm": 0.0,
-          "delta_t": 1.9,
+          "delta_t": 1.14,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-25T08:00-03:00",
-          "temp_c": 25.4,
-          "umidade": 78.0,
-          "vento_kmh": 3.2,
+          "temp_c": 25.7,
+          "umidade": 74.0,
+          "vento_kmh": 3.8,
           "precip_mm": 0.0,
-          "delta_t": 2.96,
+          "delta_t": 3.54,
           "classe": "favoravel"
         },
         {
           "data": "2026-07-25T11:00-03:00",
-          "temp_c": 30.2,
-          "umidade": 63.0,
-          "vento_kmh": 6.5,
+          "temp_c": 30.3,
+          "umidade": 57.0,
+          "vento_kmh": 3.8,
           "precip_mm": 0.0,
-          "delta_t": 5.53,
+          "delta_t": 6.54,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-25T14:00-03:00",
-          "temp_c": 33.2,
-          "umidade": 49.0,
-          "vento_kmh": 9.3,
+          "temp_c": 32.7,
+          "umidade": 52.0,
+          "vento_kmh": 6.3,
           "precip_mm": 0.0,
-          "delta_t": 8.34,
+          "delta_t": 7.71,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-25T17:00-03:00",
-          "temp_c": 33.0,
-          "umidade": 53.0,
-          "vento_kmh": 9.8,
+          "temp_c": 32.5,
+          "umidade": 49.0,
+          "vento_kmh": 10.6,
           "precip_mm": 0.0,
-          "delta_t": 7.56,
+          "delta_t": 8.24,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-25T20:00-03:00",
           "temp_c": 28.0,
-          "umidade": 65.0,
-          "vento_kmh": 10.5,
+          "umidade": 66.0,
+          "vento_kmh": 7.5,
           "precip_mm": 0.0,
-          "delta_t": 5.03,
-          "classe": "atencao"
-        },
-        {
-          "data": "2026-07-25T23:00-03:00",
-          "temp_c": 24.3,
-          "umidade": 79.0,
-          "vento_kmh": 5.3,
-          "precip_mm": 0.0,
-          "delta_t": 2.78,
+          "delta_t": 4.87,
           "classe": "favoravel"
         },
         {
+          "data": "2026-07-25T23:00-03:00",
+          "temp_c": 24.5,
+          "umidade": 78.0,
+          "vento_kmh": 6.7,
+          "precip_mm": 0.8,
+          "delta_t": 2.92,
+          "classe": "desfavoravel"
+        },
+        {
           "data": "2026-07-26T02:00-03:00",
-          "temp_c": 20.7,
-          "umidade": 90.0,
-          "vento_kmh": 4.2,
+          "temp_c": 21.2,
+          "umidade": 88.0,
+          "vento_kmh": 3.0,
           "precip_mm": 0.0,
-          "delta_t": 1.24,
+          "delta_t": 1.5,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-26T05:00-03:00",
-          "temp_c": 22.2,
+          "temp_c": 21.7,
           "umidade": 91.0,
-          "vento_kmh": 0.5,
+          "vento_kmh": 2.8,
           "precip_mm": 0.0,
           "delta_t": 1.13,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-26T08:00-03:00",
-          "temp_c": 25.5,
-          "umidade": 75.0,
-          "vento_kmh": 1.4,
+          "temp_c": 25.6,
+          "umidade": 79.0,
+          "vento_kmh": 4.1,
           "precip_mm": 0.0,
-          "delta_t": 3.39,
-          "classe": "desfavoravel"
+          "delta_t": 2.83,
+          "classe": "favoravel"
         },
         {
           "data": "2026-07-26T11:00-03:00",
-          "temp_c": 30.8,
-          "umidade": 60.0,
-          "vento_kmh": 5.7,
+          "temp_c": 30.4,
+          "umidade": 59.0,
+          "vento_kmh": 6.3,
           "precip_mm": 0.0,
-          "delta_t": 6.09,
+          "delta_t": 6.21,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-26T14:00-03:00",
-          "temp_c": 33.3,
-          "umidade": 48.0,
-          "vento_kmh": 6.0,
+          "temp_c": 33.6,
+          "umidade": 51.0,
+          "vento_kmh": 7.9,
           "precip_mm": 0.0,
-          "delta_t": 8.55,
+          "delta_t": 8.02,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-26T17:00-03:00",
-          "temp_c": 32.7,
-          "umidade": 54.0,
-          "vento_kmh": 11.7,
+          "temp_c": 31.7,
+          "umidade": 52.0,
+          "vento_kmh": 10.9,
           "precip_mm": 0.0,
-          "delta_t": 7.34,
+          "delta_t": 7.58,
           "classe": "desfavoravel"
         },
         {
           "data": "2026-07-26T20:00-03:00",
-          "temp_c": 29.0,
-          "umidade": 65.0,
-          "vento_kmh": 9.9,
+          "temp_c": 28.8,
+          "umidade": 63.0,
+          "vento_kmh": 7.8,
           "precip_mm": 0.0,
-          "delta_t": 5.11,
+          "delta_t": 5.41,
           "classe": "atencao"
         },
         {
           "data": "2026-07-26T23:00-03:00",
-          "temp_c": 23.9,
-          "umidade": 77.0,
-          "vento_kmh": 6.4,
+          "temp_c": 23.5,
+          "umidade": 80.0,
+          "vento_kmh": 7.2,
           "precip_mm": 0.0,
-          "delta_t": 3.03,
+          "delta_t": 2.61,
           "classe": "favoravel"
         },
         {
           "data": "2026-07-27T02:00-03:00",
-          "temp_c": 21.0,
+          "temp_c": 21.6,
+          "umidade": 93.0,
+          "vento_kmh": 2.3,
+          "precip_mm": 0.0,
+          "delta_t": 0.87,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-27T05:00-03:00",
+          "temp_c": 21.9,
+          "umidade": 88.0,
+          "vento_kmh": 1.0,
+          "precip_mm": 0.0,
+          "delta_t": 1.52,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-27T08:00-03:00",
+          "temp_c": 26.3,
+          "umidade": 76.0,
+          "vento_kmh": 3.3,
+          "precip_mm": 0.0,
+          "delta_t": 3.29,
+          "classe": "favoravel"
+        },
+        {
+          "data": "2026-07-27T11:00-03:00",
+          "temp_c": 30.5,
+          "umidade": 58.0,
+          "vento_kmh": 3.0,
+          "precip_mm": 0.0,
+          "delta_t": 6.39,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-27T14:00-03:00",
+          "temp_c": 33.3,
+          "umidade": 52.0,
+          "vento_kmh": 9.8,
+          "precip_mm": 0.0,
+          "delta_t": 7.79,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-27T17:00-03:00",
+          "temp_c": 32.7,
+          "umidade": 51.0,
+          "vento_kmh": 10.3,
+          "precip_mm": 0.0,
+          "delta_t": 7.9,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-27T20:00-03:00",
+          "temp_c": 28.4,
+          "umidade": 61.0,
+          "vento_kmh": 8.8,
+          "precip_mm": 0.0,
+          "delta_t": 5.68,
+          "classe": "atencao"
+        },
+        {
+          "data": "2026-07-27T23:00-03:00",
+          "temp_c": 23.8,
+          "umidade": 78.0,
+          "vento_kmh": 6.9,
+          "precip_mm": 0.0,
+          "delta_t": 2.89,
+          "classe": "favoravel"
+        },
+        {
+          "data": "2026-07-28T02:00-03:00",
+          "temp_c": 20.3,
+          "umidade": 90.0,
+          "vento_kmh": 4.3,
+          "precip_mm": 0.0,
+          "delta_t": 1.23,
+          "classe": "desfavoravel"
+        },
+        {
+          "data": "2026-07-28T05:00-03:00",
+          "temp_c": 21.1,
           "umidade": 89.0,
-          "vento_kmh": 3.9,
+          "vento_kmh": 0.5,
           "precip_mm": 0.0,
           "delta_t": 1.37,
           "classe": "desfavoravel"
         },
         {
-          "data": "2026-07-27T05:00-03:00",
-          "temp_c": 20.9,
-          "umidade": 88.0,
-          "vento_kmh": 2.4,
+          "data": "2026-07-28T08:00-03:00",
+          "temp_c": 24.9,
+          "umidade": 74.0,
+          "vento_kmh": 3.6,
           "precip_mm": 0.0,
-          "delta_t": 1.5,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-27T08:00-03:00",
-          "temp_c": 24.7,
-          "umidade": 75.0,
-          "vento_kmh": 0.7,
-          "precip_mm": 0.0,
-          "delta_t": 3.35,
-          "classe": "desfavoravel"
-        },
-        {
-          "data": "2026-07-27T11:00-03:00",
-          "temp_c": 29.4,
-          "umidade": 58.0,
-          "vento_kmh": 6.0,
-          "precip_mm": 0.0,
-          "delta_t": 6.27,
-          "classe": "atencao"
+          "delta_t": 3.5,
+          "classe": "favoravel"
         }
       ],
       "resumo": {
-        "horas_favoraveis": 8,
-        "horas_atencao": 6,
-        "horas_desfavoraveis": 26,
+        "horas_favoraveis": 10,
+        "horas_atencao": 5,
+        "horas_desfavoraveis": 25,
         "total_instantes": 40,
-        "proxima_janela": "2026-07-22T20:00-03:00"
+        "proxima_janela": "2026-07-23T23:00-03:00"
       }
+    }
+  ],
+  "noticias": [
+    {
+      "titulo": "Boas práticas reduzem deriva na aplicação de herbicidas",
+      "link": "https://news.google.com/?hl=pt-BR",
+      "fonte": "Embrapa",
+      "data": "23/07 11:24",
+      "tema": "exemplo"
+    },
+    {
+      "titulo": "Delta-T: entenda a janela ideal para pulverização",
+      "link": "https://news.google.com/?hl=pt-BR",
+      "fonte": "Canal Rural",
+      "data": "23/07 11:24",
+      "tema": "exemplo"
+    },
+    {
+      "titulo": "Tecnologia de aplicação ganha espaço na safra do Sudeste",
+      "link": "https://news.google.com/?hl=pt-BR",
+      "fonte": "Notícias Agrícolas",
+      "data": "23/07 11:24",
+      "tema": "exemplo"
+    },
+    {
+      "titulo": "Manejo de plantas daninhas exige atenção ao clima",
+      "link": "https://news.google.com/?hl=pt-BR",
+      "fonte": "Agrolink",
+      "data": "23/07 11:24",
+      "tema": "exemplo"
     }
   ]
 }
