@@ -487,11 +487,15 @@ const REC=[
 const getP=(o,p)=>p.split('.').reduce((x,k)=>x[k],o);
 function setP(o,p,v){const ks=p.split('.'),last=ks.pop();ks.reduce((x,k)=>x[k],o)[last]=v;}
 function renderRec(){const el=$('rec');if(!el)return;let h='<div class="recgrid">';
-  REC.forEach(g=>{h+='<div class="recbox"><h4>'+g.t+'</h4>';g.campos.forEach(([p,lab])=>{h+='<div class="recline"><span style="flex:1">'+lab+'</span><input type="number" step="any" data-path="'+p+'" value="'+getP(LIM,p)+'"></div>';});h+='</div>';});
+  REC.forEach(g=>{h+='<div class="recbox"><h4>'+g.t+'</h4>';g.campos.forEach(([p,lab])=>{h+='<div class="recline"><span style="flex:1">'+lab+'</span><input type="text" inputmode="decimal" data-path="'+p+'" value="'+getP(LIM,p)+'"></div>';});h+='</div>';});
   h+='</div><div class="recact"><button class="btn" id="recSalvar">Aplicar</button><button class="linkbtn" id="recPadrao">Restaurar padrão</button><span class="sub" style="align-self:center">Recalcula as janelas e salva neste navegador.</span></div>';
   el.innerHTML=h;
-  el.querySelector('#recSalvar').onclick=()=>{el.querySelectorAll('input[data-path]').forEach(i=>{const v=parseFloat(i.value);if(!isNaN(v))setP(LIM,i.dataset.path,v);});salvarLim();reclassificar();render();};
-  el.querySelector('#recPadrao').onclick=()=>{LIM=padraoLim();salvarLim();renderRec();reclassificar();render();};}
+  el.querySelector('#recSalvar').onclick=()=>{
+    el.querySelectorAll('input[data-path]').forEach(i=>{const v=parseFloat(String(i.value).replace(',','.'));if(!isNaN(v))setP(LIM,i.dataset.path,v);});
+    salvarLim();reclassificar();render();
+    if(elStatus){elStatus.className='';elStatus.textContent='✓ Recomendações aplicadas — janelas recalculadas.';}};
+  el.querySelector('#recPadrao').onclick=()=>{LIM=padraoLim();salvarLim();renderRec();reclassificar();render();
+    if(elStatus){elStatus.className='';elStatus.textContent='↺ Recomendações restauradas para o padrão.';}};}
 if($('abrirRec'))$('abrirRec').onclick=()=>{const r=$('rec');r.hidden=!r.hidden;if(!r.hidden)renderRec();};
 
 /* ---------- PANORAMA ---------- */
