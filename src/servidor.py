@@ -25,16 +25,31 @@ from . import coleta, config
 app = Flask(__name__)
 
 
+def _garante_paginas() -> None:
+    """Gera index.html e panorama.html se ainda não existirem."""
+    if (config.DOCS_DIR / "index.html").exists() and (config.DOCS_DIR / "panorama.html").exists():
+        return
+    base = config.DADOS_DIR / "latest.json"
+    dados = json.loads(base.read_text(encoding="utf-8")) if base.exists() else coleta.gerar_exemplo()
+    from . import dashboard
+    dashboard.gerar(dados)
+
+
 @app.get("/")
 def index() -> Response:
-    arq = config.DOCS_DIR / "index.html"
-    if not arq.exists():
-        # Sem painel ainda: gera um a partir do último dado (ou de exemplo).
-        base = config.DADOS_DIR / "latest.json"
-        dados = json.loads(base.read_text(encoding="utf-8")) if base.exists() else coleta.gerar_exemplo()
-        from . import dashboard
-        dashboard.gerar(dados)
-    return Response(arq.read_text(encoding="utf-8"), mimetype="text/html")
+    _garante_paginas()
+    return Response((config.DOCS_DIR / "index.html").read_text(encoding="utf-8"), mimetype="text/html")
+
+
+@app.get("/index.html")
+def index_html() -> Response:
+    return index()
+
+
+@app.get("/panorama.html")
+def panorama() -> Response:
+    _garante_paginas()
+    return Response((config.DOCS_DIR / "panorama.html").read_text(encoding="utf-8"), mimetype="text/html")
 
 
 @app.get("/dados")
