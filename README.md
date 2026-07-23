@@ -46,7 +46,7 @@ python -m src.coleta --apenas-padrao   # o .env é carregado automaticamente
 **GitHub Actions + Pages (recomendado):** em *Settings → Secrets and variables →
 Actions*, crie os secrets `EMBRAPA_CONSUMER_KEY` e `EMBRAPA_CONSUMER_SECRET`. O
 workflow [`.github/workflows/publicar-painel.yml`](.github/workflows/publicar-painel.yml)
-roda sozinho às 10:00 UTC (07:00 BRT), gera o painel e publica no **GitHub Pages**.
+roda sozinho **3x/dia** às 10/15/18 UTC (07h, 12h e 15h BRT), gera o painel e publica no **GitHub Pages**.
 Sem os secrets, ele publica com dados de exemplo até você cadastrá-los.
 
 ## Uso
@@ -97,7 +97,7 @@ start `gunicorn src.servidor:app --bind 0.0.0.0:$PORT` e as duas variáveis de a
 
 > No plano grátis do Render o serviço "dorme" após um tempo ocioso; a primeira
 > visita depois disso leva alguns segundos para acordar. Isso não afeta a coleta
-> diária das 7h, que roda pelo GitHub Actions.
+> das 7h/12h/15h, que roda pelo GitHub Actions.
 
 > **Segurança:** as chaves nunca vão para o HTML nem para o repositório (o `.env`
 > está no `.gitignore`). Como as chaves que você enviou passaram pelo chat,

@@ -11,7 +11,8 @@ name: Publicar painel (GitHub Pages)
 # previsão real.
 on:
   schedule:
-    - cron: "0 10 * * *"   # 10:00 UTC == 07:00 America/Sao_Paulo
+    # 3x/dia no horário de Brasília (UTC-3): 07:00, 12:00 e 15:00 BRT
+    - cron: "0 10,15,18 * * *"   # 10/15/18 UTC == 07/12/15 BRT
   workflow_dispatch:
   push:
     branches:
