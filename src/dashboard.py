@@ -310,7 +310,12 @@ const V=n=>RC('var('+n+')');
 
 /* limiares editáveis */
 function padraoLim(){return JSON.parse(JSON.stringify(DADOS.limiares));}
-let LIM;try{LIM=JSON.parse(localStorage.getItem('limiares_janela'))||padraoLim();}catch(e){LIM=padraoLim();}
+/* garante que o LIM salvo tenha SEMPRE o formato atual (dados antigos no
+   navegador não quebram mais o editor de recomendações) */
+function mesclarLim(base,ov){if(Array.isArray(base))return base.map((v,i)=>ov&&typeof ov[i]==='number'?ov[i]:v);
+  if(base&&typeof base==='object'){const o={};for(const k in base)o[k]=mesclarLim(base[k],ov?ov[k]:undefined);return o;}
+  return typeof ov==='number'?ov:base;}
+let LIM;try{LIM=mesclarLim(padraoLim(),JSON.parse(localStorage.getItem('limiares_janela')));}catch(e){LIM=padraoLim();}
 function salvarLim(){try{localStorage.setItem('limiares_janela',JSON.stringify(LIM));}catch(e){}}
 function classificar(t,u,v,p,dt){const L=LIM;
   if(p>L.precip_mm_max)return'desfavoravel';
@@ -484,16 +489,17 @@ const REC=[
   {t:'Umidade relativa (%)',campos:[['umidade.ideal_min','Ideal a partir'],['umidade.aceitavel_min','Aceit. a partir']]},
   {t:'Delta-T (°C)',campos:[['delta_t.ideal.0','Ideal mín'],['delta_t.ideal.1','Ideal máx'],['delta_t.aceitavel.0','Aceit. mín'],['delta_t.aceitavel.1','Aceit. máx']]},
   {t:'Chuva (mm)',campos:[['precip_mm_max','Máx. sem chuva']]}];
-const getP=(o,p)=>p.split('.').reduce((x,k)=>x[k],o);
+const getP=(o,p)=>p.split('.').reduce((x,k)=>x==null?undefined:x[k],o);
 function setP(o,p,v){const ks=p.split('.'),last=ks.pop();ks.reduce((x,k)=>x[k],o)[last]=v;}
 function renderRec(){const el=$('rec');if(!el)return;let h='<div class="recgrid">';
   REC.forEach(g=>{h+='<div class="recbox"><h4>'+g.t+'</h4>';g.campos.forEach(([p,lab])=>{h+='<div class="recline"><span style="flex:1">'+lab+'</span><input type="text" inputmode="decimal" data-path="'+p+'" value="'+getP(LIM,p)+'"></div>';});h+='</div>';});
   h+='</div><div class="recact"><button class="btn" id="recSalvar">Aplicar</button><button class="linkbtn" id="recPadrao">Restaurar padrão</button><span class="sub" style="align-self:center">Recalcula as janelas e salva neste navegador.</span></div>';
   el.innerHTML=h;
-  el.querySelector('#recSalvar').onclick=()=>{
+  el.querySelector('#recSalvar').onclick=()=>{try{
     el.querySelectorAll('input[data-path]').forEach(i=>{const v=parseFloat(String(i.value).replace(',','.'));if(!isNaN(v))setP(LIM,i.dataset.path,v);});
     salvarLim();reclassificar();render();
-    if(elStatus){elStatus.className='';elStatus.textContent='✓ Recomendações aplicadas — janelas recalculadas.';}};
+    if(elStatus){elStatus.className='';elStatus.textContent='✓ Recomendações aplicadas — janelas recalculadas.';}
+  }catch(err){if(elStatus){elStatus.className='err';elStatus.textContent='Não foi possível aplicar: '+err.message;}}};
   el.querySelector('#recPadrao').onclick=()=>{LIM=padraoLim();salvarLim();renderRec();reclassificar();render();
     if(elStatus){elStatus.className='';elStatus.textContent='↺ Recomendações restauradas para o padrão.';}};}
 if($('abrirRec'))$('abrirRec').onclick=()=>{const r=$('rec');r.hidden=!r.hidden;if(!r.hidden)renderRec();};
